@@ -1,5 +1,5 @@
 # Shef_CodeFirst_Python
-Course materials for the Advanced Python course in Sheffield 🤖
+Course materials for the Advanced Python course in Manchester 🤖
 
 I created a custom stylesheet that overrides some of the default styles from the 'reveal.js' themes. This should work with both the 'white' and the 'black' themes. Feel free to use the one you like the most. You only need to modify this directly on the .html file you are working on.
 
