@@ -3,9 +3,9 @@
 
 
 
-# Code First Girls: Advanced Python course at the University of Mcrfield
+# Code First Girls: Advanced Python course at the University of Manchester
 
-Course materials for the Advanced Python course in Mcrfield 🤖
+Course materials for the Advanced Python course in Manchester 🤖
 
 **The contents of this repository correspond to the Spring/Summer 2018 course**
 
