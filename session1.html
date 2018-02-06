@@ -66,8 +66,31 @@
 					<br>
 					<br>
 					<p class='fragment grow'>
-						<a href="http://bitsandchips.me/Shef_CodeFirst_Python/">
-							http://bitsandchips.me/Shef_CodeFirst_Python/</a></p>
+						<a href="http://bitsandchips.me/Mcr_CodeFirst_Python/">
+							http://bitsandchips.me/Mcr_CodeFirst_Python/</a></p>
+				</section>
+
+
+				<section >
+					<h3><i class="fa fa-tag" aria-hidden="true"></i>
+					Class focus:</h3>
+					<ul>
+						<li>Get an overview of Python capabilities</li>
+						<li>Different types of data: strings, integers, floats</li>
+						<li>What is a method?</li>
+						<li>Python as a calculator</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<h3>
+						<i class="fa fa-sticky-note" aria-hidden="true"></i>
+						Something else: Post-its</h3>
+						<ul>
+							<li><strong>Green:</strong> everything is cool</li>
+							<li><strong>Pink:</strong> I need more time or some help</li>
+						</ul>
 				</section>
 
 				<section>
@@ -78,6 +101,12 @@
 						with an emphasis on code readability...</p>
 					<p class='fragment'>which makes it great for beginners!!!
 					</p>
+				</section>
+
+				<section>
+					Python itself exists to run <strong>programs you have written</strong>
+					but it can also run as a program on its own allowing you to explore
+					the language by typing commands which it then executes for you.
 				</section>
 
 				<section>
@@ -139,8 +168,8 @@
 					<accent-text> String: collection of characters denoted by " "
 					</accent-text>
 					```python
-					print('Bob'*3)
-					print('Bob'+3)
+					print('Bob' * 3)
+					print('Bob' + 3)
 					print('hello'.upper())
 					print('GOODBYE'.lower())
 					print("the lord of the rings".title())
@@ -160,6 +189,52 @@
 					When attached to a 'string' they tell Python to do some processing
 				 on the strings
 			 </p>
+				</section>
+
+				<section>
+					<h2><i class="fa fa-calculator"></i>
+						Numbers and Maths
+					</h2>
+					<p>
+						Every good programming language allows you to do some maths.
+						Python is no different!
+					</p>
+					<div data-markdown>
+						```python
+						print(2 + 2)
+						print(8 * 9)
+						print(5 / 2)
+						print(5 // 2)
+						print(5 % 2)
+						```
+						Try it yourself by adding the above to **hello.py** and run it!
+					</div>
+				</section>
+
+				<section>
+					The symbols between the numbers are called <strong>operators</strong>.
+					<p class="fragment">
+						<code>+</code>, <code>-</code> and <code>*</code> (multiplication) work as we
+						know it from maths.
+					</p>
+					<p class="fragment">
+						There are two types of division in Python: normal division with <code>/</code>,
+						but <strong>integer division</strong> with <code>//</code>.
+					</p>
+					<p class="fragment">
+						In our example, integer division gives the <strong>largest whole number</strong>
+						of times 2 goes into 5, which is 2.
+					</p>
+				</section>
+
+				<section>
+					The other related operator from the division operator <code>//</code> is
+					the <code>%</code> modulus operator.
+					<p class="fragment">It returns what's left over from an integer division.</p>
+					<p class="fragment">
+						In our example, <code>5 % 2 = 1 </code>since 5 divides fully into 2 twice,
+						leaving 1 over.
+					</p>
 				</section>
 
 				<section>
@@ -209,7 +284,7 @@
 					```python
 					greeting ="Hello World!"        # This creates a variable
 					greeting.upper()                # This converts the string to uppercase
-					print (greeting*3)              # This prints the string 3 times
+					print (greeting * 3)            # This prints the string 3 times
 					```
 				</section>
 

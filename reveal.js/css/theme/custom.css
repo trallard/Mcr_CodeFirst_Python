@@ -61,7 +61,9 @@
   padding: 10px;
   max-height: 400px;
   word-wrap: normal;
-  font-size: 1.25em; }
+  font-size: 1.25em;
+  border: 2px solid #C1CAD6;
+  border-radius: 4px;}
 
 .reveal section img {
   margin: 15px 0px;
