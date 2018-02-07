@@ -1,5 +1,6 @@
 /** Customised template for slides  **/
 @import url('https://fonts.googleapis.com/css?family=Lobster+Two|Open+Sans:400+400i');
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
 
 /*********************************************
 * PERSONAL
@@ -11,6 +12,7 @@ $blue: #119DA4; /* Sea blue not blue blue */
 
 $title-font:'Lobster Two', cursive;
 $base-font: 'Open Sans', sans-serif;
+$title-font2: 'Berkshire Swash', cursive;
 
 /*********************************************
  * OVER WRITING DEFAULT STYLES
@@ -25,7 +27,7 @@ $base-font: 'Open Sans', sans-serif;
 .reveal h5,
 .reveal h6 {
   color: $deep-carmine;
-  font-family: $title-font;
+  font-family: $title-font2;
   font-weight: bold;
   text-transform: none;
 }

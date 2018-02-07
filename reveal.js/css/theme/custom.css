@@ -1,5 +1,6 @@
 /** Customised template for slides  **/
 @import url("https://fonts.googleapis.com/css?family=Lobster+Two|Open+Sans:400+400i");
+@import url("https://fonts.googleapis.com/css?family=Berkshire+Swash");
 /*********************************************
 * PERSONAL
 *********************************************/
@@ -17,7 +18,7 @@
 .reveal h5,
 .reveal h6 {
   color: #EF3A34;
-  font-family: "Lobster Two", cursive;
+  font-family: "Berkshire Swash", cursive;
   font-weight: bold;
   text-transform: none; }
 
@@ -42,7 +43,7 @@
   bottom: 8px;
   z-index: 31;
   background-image: url("../../assets/CF-logo.png");
-  background-size: 30%;
+  background-size: 20%;
   background-position: 0% 100%;
   background-repeat: no-repeat; }
 
@@ -59,11 +60,10 @@
 .reveal pre code {
   display: block;
   padding: 10px;
+  overflow: auto;
   max-height: 400px;
   word-wrap: normal;
-  font-size: 1.25em;
-  border: 2px solid #C1CAD6;
-  border-radius: 4px;}
+  font-size: 1.25em; }
 
 .reveal section img {
   margin: 15px 0px;
