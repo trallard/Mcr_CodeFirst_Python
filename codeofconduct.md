@@ -25,7 +25,7 @@ Our main aim is not only to _teach individuals how to code_ but to **build a sup
 
 Hence all the instructors, attendees, helpers, ambassadors, and invited speakers have to adhere to this code of conduct.
 
-Behaviours violating this code of conduct will not be tolerated. If you experience behaviour that makes participation at the workshops not a safe and positive community experience for all please inform your lead instructors: Tania Allard and Darren Vong.
+Behaviours violating this code of conduct will not be tolerated. If you experience behaviour that makes participation at the workshops not a safe and positive community experience for all please inform your lead instructors: Tania and Lorenzo.
 
 ---
 
@@ -117,6 +117,7 @@ Reports of harassment/discrimination will be promptly and thoroughly investigate
 
 Anyone asked to stop unacceptable behavior is expected to comply immediately. Violation of these guidelines can result in you being ask to leave an event or online space, either temporarily or for the duration of the event, or being banned from participation in spaces, or future events and activities in perpetuity.
 
-
 ## Reporting
+
 If you believe you’re experiencing unacceptable behavior that will not be tolerated as outlined above, please contact t.allard@sheffield.ac.uk
+
