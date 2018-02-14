@@ -20,6 +20,9 @@
 		<!-- Font awesome -->
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
 
+		<!-- Session specific CSS -->
+		<link rel="stylesheet" href="./assets/css/session2.css">
+
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -40,10 +43,6 @@
 					</p>
 					<p class='author'> Christopher McIntyre
 					<br>
-				 <a href="http://twitter.com/cgmcintyr" target="_blank">
-					<i class="fa fa-twitter" aria-hidden="true">
-					</i> @cgmcintyr
-				 </a>
  		 			</p>
 					<p>
 					<small>
@@ -92,7 +91,7 @@
 						(if you need to make sure type <code>ls</code>)</li>
 						<li> Type the following command </li>
 						<pre><code>python session2.py</code></pre>
-						<li>Your script should reply with <strong>Hello world</strong></li>
+						<li>Your script should reply with <code>Hello World</code></li>
 					</ul>
 				</section>
 
@@ -116,13 +115,14 @@
 					python session2.py
 					```
 					</div>
-					<p>Your script should reply with <strong>Hello Your name here</strong></p>
+					<p>Your script should reply with <code>Hello Your name here</code></p>
 				</section>
 
 				<section>
 					<h3> <i class="fa fa-reply" aria-hidden="true"></i>
 						Recap: Changing variables</h3>
-					The contents of a variable can be changed any time after it has been <strong>declared</strong>
+					The contents of a variable can be changed any time after it has been
+					<strong>declared</strong>
 					<div data-markdown>
 						```python
 						name = "Your name here"
@@ -134,27 +134,20 @@
 						python session2.py
 						```
 					</div>
-					<p>Your script should reply with <strong>Hello YOUR NAME HERE</strong></p>
+					<p>Your script should reply with <code>Hello YOUR NAME HERE</code></p>
 				</section>
 
 				<section>
-					<h3> <i class="fa fa-reply" aria-hidden="true"></i>
-						Recap: Github</h3>
-					<p>Lets push your code to github to keep a history of your changes.</p>
-					<p>We can use <strong>GitKraken</strong> to do this.</p>
+					<h2><i class="fa fa-star" aria-hidden="true"></i>And now...</h2>
 				</section>
 
 				<section>
-					<h2>And now</h2>
-				</section>
-
-				<section>
-					<h3>User input</h3>
+					<h3><i class="fa fa-keyboard-o" aria-hidden="true"></i>User input</h3>
 					<p>A program is made much more useful by allowing a user to interact with it</p>
 					<p>We can use the <strong>input</strong> method to get a user's name.</p>
 				</section>
 
-				<section>
+				<section id="user-input">
 						Open your <strong>session2.py</strong> file and replace the contents with the following
 						<div data-markdown>
 						```python
@@ -167,10 +160,17 @@
 						python session2.py
 						```
 						</div>
+
+						<hr>
+ 						<a href="#/extra-exercises">
+ 							<small><i class="fa fa-plus" aria-hidden="true"></i>Finished already?
+								here are some additional exercises for you to do!</small>
+ 						</a>
+
 				</section>
 
 				<section>
-					<h3>Functions</h3>
+					<h3><i class="fa fa-star" aria-hidden="true"></i>Functions</h3>
 					<p>Programming the same task can get boring</p>
 					<p>A <strong>function</strong> allows us to reuse code by giving a
 					name to a block of code</p>
@@ -197,16 +197,17 @@
 
 				<section>
 					<ul>
-						<li><strong>def</strong> tells python we are <strong>defining</strong> a function</li>
-						<li><strong>hello_world</strong> is the unique name of our function*</li>
-						<li><strong>()</strong> the brackets tell python this function has zero <strong>arguments</strong></li>
-						<li><strong>:</strong> the colon tells python the indented lines below this line are a <strong>code block</strong></li>
-						<li><strong>hello_world()</strong> is how we <strong>call</strong> our function</li>
+						<li><code>def</code> tells python we are <strong>defining</strong> a function</li>
+						<li><code>hello_world</code> is the unique name of our function*</li>
+						<li><code>()</code> the brackets tell python this function has zero <strong>arguments</strong></li>
+						<li><code>:</code> the colon tells python the indented lines below this line are a <strong>code block</strong></li>
+						<li><code>hello_world()</code> is how we <strong>call</strong> our function</li>
 					</ul>
+					<hr>
 					<p>
 						<em>
 							*be careful not to overwrite default python functions like
-							<strong>print</strong> or <strong>sum</strong>
+							<code>print</code> or <code>sum</code>
 						</em>
 					</p>
 				</section>
@@ -215,9 +216,10 @@
 					<h3>Arguments</h3>
 					<p><strong>Arguments</strong> are values passed into a function<p>
 					<ul>
-						<li>Sometimes we have a block of code we want customise when we call it</li>
-						<li>Arguments go in the brackets <strong>()</strong> when calling a function</li>
-						<li>e.g. <strong>print("hello")</strong> prints the value of its argument, which happens to be the string <strong>"hello"</strong></li>
+						<li>Sometimes we have a block of code we want to customise when we call it</li>
+						<li>Arguments go in the brackets <code>()</code> when calling a function</li>
+						<li>e.g. <code>print("hello")</code> prints the value of its argument,
+							which happens to be the string <strong>"hello"</strong></li>
 					</ul>
 				</section>
 
@@ -232,8 +234,8 @@
 					<div data-markdown>
 					```python
 					def add_two_numbers():
-					    number1 =1
-					    number2 =2
+					    number1 = 1
+					    number2 = 2
 					    answer = number1 + number2
 					    print("{} plus {} is {}".format(number1, number2, answer))
 
@@ -243,7 +245,7 @@
 					<p>This is a function with zero arguments (the brackets are empty in the definition)</p>
 				</section>
 
-				<section>
+				<section id="function-args">
 					<br>
 					Edit <strong>more_arguments.py</strong> and replace the old function with the following
 					<div data-markdown>
@@ -259,21 +261,28 @@
 					</div>
 					<p>This is a function with two arguments</p>
 					<p>Arguments are named variables only available in the function</p>
+					<hr>
+ 				<a href="#/function-exercises">
+ 						<small>Finished already? here are some additional exercises for you
+	 to do!</small>
+ 					</a>
 				</section>
 
 				<section>
 					<h3>Returning stuff from functions</h3>
-					<p>Functions do stuff like crunch numbers or manipulate data, and can then <strong>return</strong> the information they calculate</p>
+					<p>Functions do stuff like crunch numbers or manipulate data, and can
+						then <strong>return</strong> the information they calculate</p>
 				</section>
 
 				<section>
 					<br>
-					Create a new file called <strong>returning.py</strong> and enter the following
+					Create a new file called <strong>returning.py</strong> and enter the
+					following:
 					<div data-markdown>
 					```python
 					def add_two_numbers_and_return_value():
-					    number1 =1
-					    number2 =2
+					    number1 = 1
+					    number2 = 2
 					    answer = number1 + number2
 					    return answer
 
@@ -281,7 +290,8 @@
 					print (returned_value)
 					```
 					</div>
-					<p><strong>Extra challenge</strong> change the function to return the result of adding two arguments together</p>
+					<p><strong>Extra challenge:</strong> change the function to return the
+						result of adding two arguments together</p>
 				</section>
 
 				<section>
@@ -325,7 +335,7 @@
 					<h2>For loops</h2>
 				</section>
 
-				<section>
+				<section id="for-loops">
 					<br>
 					For loops can be used to perform actions on each element in a list
 					<div data-markdown>
@@ -340,13 +350,19 @@
 						print(x)
 					```
 					</div>
+
+					<hr>
+        <a href="#/for-loops-exercises">
+          <small>Finished already? Here are some additional exercises for you to do!</small>
+        </a>
+
 				</section>
 
 				<section>
 					<h2>Programming with logic</h2>
 				</section>
 
-				<section>
+				<section id="logic">
 						<br>
 						Create a new file called <strong>logic.py</strong> and enter the following
 						<div data-markdown>
@@ -361,11 +377,81 @@
 						    print("Too low!")
 						```
 						</div>
+						<hr>
+            <a href="#/logic-exercises">
+              <small>Finished already? Here are some additional exercises for you to do!</small>
+            </a>
 				</section>
 
 				<section>
 					<h2>The end!</h2>
 				</section>
+
+				<section id="extra-exercises">
+ 					<h2>User input: bonus exercises</h2>
+ 					<ol>
+ 						<li>Extend the script by adapting the code from Exercise 11 of the
+							LPTHW book.</li>
+ 						<li>§
+ 							Simplify the script by not using <code>print(...)</code> to show the questions
+ 							before each input.
+ 						</li>
+ 						<li>
+ 							* Assuming the user will only type in numbers (e.g. 6'2" will be entered as 62),
+ 							print out the sum of the person's age, weight and height. E.g. If the person is 21, weigh
+ 							150 lbs and is 6'2" tall, then the sum is <strong>21 + 150 + 62 = 233</strong>.
+ 						</li>
+ 					</ol>
+ 					<hr>
+ 					<a href="#/user-input"><small>Go back</small></a>
+ 				</section>
+
+ 				<section id="function-exercises">
+ 					<h2>Functions: bonus exercises</h2>
+ 					<ol>
+ 						<li>
+ 							What happens if you try to call the
+ 							<code>add_two_numbers_from_args</code> function without providing 2 arguments?
+ 						</li>
+ 						<li>* How might you amend the function such that it is <strong>optional</strong> to call
+ 							<code>add_two_numbers_from_args</code> with 2 arguments? Do a Google search or ask
+ 							an instructor if you're stuck on this!
+ 						</li>
+ 						<li>If you haven't already, do Exercise 18, 19 and 21 in the LPTHW book.</li>
+ 					</ol>
+ 					<hr>
+ 					<a href="#/function-args"><small>Go back</small></a>
+ 				</section>
+
+				<section id="for-loops-exercises">
+				 <h2>For loops: bonus exercises</h2>
+				 <ol>
+					 <li>If you haven't already, do Exercise 32 in the LPTHW book.</li>
+					 <li>Write a function that prints out "Hello world!" 10 times, once on each line.</li>
+					 <li>Modify the function you have written above to take an argument named <code>n</code>,
+						 so that it prints "Hello world!" n times when called.
+					 </li>
+				 </ol>
+				 <hr>
+				 <a href="#/for-loops"><small>Go back</small></a>
+			 </section>
+
+			 <section id="logic-exercises">
+				 <h2>Logic: bonus exercises</h2>
+				 <ol>
+					 <li>If you haven't already, do Exercise 29-31 in the LPTHW book.</li>
+					 <li>
+						 Carry on with Exercise 33, 34, 38 and 39.
+					 </li>
+					 <li>
+						 * Write a function called <code>guess_my_number</code> that takes an argument
+						 <code>answer</code> so that when called, it continuously asks the user for a number
+						 until they have guessed the answer.
+					 </li>
+				 </ol>
+				 <hr>
+				 <a href="#/logic"><small>Go back</small></a>
+			 </section>
 
 			</div>
 		</div>
