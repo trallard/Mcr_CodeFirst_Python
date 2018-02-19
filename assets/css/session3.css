@@ -1,0 +1,35 @@
+#req-url {
+  position: absolute;
+  top: 10px;
+  left: 40%;
+  font-size: 20px;
+  color: #8E24AA;
+}
+
+#res {
+  position: absolute;
+  color: #8E24AA;
+  font-size: 18px;
+  bottom: 38%;
+  left: 42.5%;
+}
+
+#bonus-exercises li {
+  font-size: 85%;
+}
+
+#bonus-exercises ol {
+  margin-top: 15px;
+}
+
+#git-hands-on p,
+#flask-explain p,
+#bonus-exercises-2 p,
+#bonus-exercises-3 p {
+  font-size: 90%;
+}
+
+#html-template pre,
+#css-include pre {
+  width: 100%;
+}

@@ -29,339 +29,739 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
-		<style>
-			#req-url {position: absolute;top: 10px;left: 40%;font-size: 20px;color: #8E24AA;}
-			#res {position: absolute;color: #8E24AA;font-size: 18px;bottom: 38%;left: 42.5%;}
-		</style>
+		<!-- Session specific CSS -->
+		<link rel="stylesheet" href="./assets/css/session3.css">
 
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides logo">
-				<section>
-					<h2> Session 3: Flask - using Python & HTML
-						<span style="margin-left: 10px">together</span> (Part 1)
-					</h2>
-					<p>Linking together the back-end with the front-end</p>
-					<p class='author'> Darren Vong
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides logo">
+        <section>
+          <h2> Session 3: Flask - using Python & HTML
+            <span style="margin-left: 10px">together</span> (Part 1)
+          </h2>
+          <p>Linking together the back-end with the front-end</p>
+					<p class='author'> Tania Allard, PhD
 					<br>
-				 <a href="http://twitter.com/mrdarrenv" target="_blank">
+				 <a href="http://twitter.com/ixek" target="_blank">
 					<i class="fa fa-twitter" aria-hidden="true">
-					</i> @mrdarrenv
+					</i> @ixek
 				 </a>
  		 			</p>
 				</section>
 
-				<section>
-					<h2> Where can I find the material? </h2>
-					You can find all the slides, links to the curriculum, and
-					to the GitHub repository at:
-					<br>
-					<br>
-					<p class='fragment grow'>
-						<a href="http://bitsandchips.me/Mcr_CodeFirst_Python/">
-							http://bitsandchips.me/Mcr_CodeFirst_Python/</a></p>
-				</section>
+        <section>
+          <h2> Where can I find the material? </h2>
+          You can find all the slides, links to the curriculum, and
+          to the GitHub repository at:
+          <br>
+          <br>
+          <p class='fragment grow'>
+            <a href="https://darrenvong.github.io/shefcodefirst-python/">
+              https://darrenvong.github.io/shefcodefirst-python/</a></p>
+        </section>
+
+        <section>
+          <h3> <i class="fa fa-reply" aria-hidden="true"></i>
+            Recap: Functions
+          </h3>
+          <ul>
+            <li>A function is a named block of <strong>reusable code</strong>.</li>
+            <li>
+              A function can have no arguments...
+            </li>
+            <li>
+              ... or it can take any number of arguments,
+              which goes inside the brackets <strong>()</strong> when we define
+              our function.
+            </li>
+            <li>
+              A function may optionally <strong>return</strong> some information
+            </li>
+            <li>
+              This could be <strong>some value</strong>, or some results directly
+              from <strong>another function</strong>!
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3><i class="fa fa-exclamation-triangle"></i>
+            Some words of caution about functions...
+          </h3>
+          <em>
+            Be careful not to overwrite built-in Python functions like <strong>print</strong>!
+          </em>
+        </section>
+
+        <section>
+          <p>Create a file named <strong>session2_recap.py</strong> and enter the following:</p>
+          <div data-markdown>
+            ```python
+            def print_hello():
+              print("Hello world!")
+
+            def add_one(number):
+              return number + 1
+
+            print_hello()
+            eight_plus_one = add_one(8)
+            print(eight_plus_one)
+            ```
+          </div>
+          <p>
+            It should print <strong>Hello world!</strong> followed by
+            <strong>9</strong> on the next line.
+          </p>
+        </section>
+
+        <section>
+          <h3><i class="fa fa-reply" aria-hidden="true"></i>
+            Recap: Lists
+          </h3>
+          <ul>
+            <li>Lists are an <strong>ordered</strong> collection of items</li>
+            <li>List items go between square brackets <strong>[ ]</strong></li>
+            <li>
+              We can put any items in a list, each of which is separated by a comma
+            </li>
+            <li>The first item starts at position (index) 0!</li>
+          </ul>
+        </section>
+
+        <section>
+          <p>Replace the content of <strong>session2_recap.py</strong> with the following:</p>
+          <div data-markdown>
+            ```python
+            instructors = ["Tania", "Lorenzo"]
+            print(f"The second instructor in the list is {instructors[1]}")
+            ```
+          </div>
+          <p>
+            It should print <strong>The second instructor in the list is Lorenzo</strong>.
+          </p>
+        </section>
+
+        <section>
+          <h3><i class="fa fa-reply" aria-hidden="true"></i>
+            Recap: For loops
+          </h3>
+          <p>
+            Commonly used to go through each item in <strong>a collection of items</strong>,
+            such as <strong>a list</strong> or <strong>a dictionary</strong>.
+          </p>
+          <p class="fragment">Since we saw how to loop through a list last time, for completeness,
+            let's see an example on how to loop through a dictionary...</p>
+        </section>
 
 				<section>
-					<h3> <i class="fa fa-reply" aria-hidden="true"></i>
-						Recap: Functions
-					</h3>
-					<ul>
-						<li>A function is a named block of <strong>reusable code</strong>.</li>
-						<li>
-							A function can have no arguments...
-						</li>
-						<li>
-							... or it can take any number of arguments,
-							which goes inside the brackets <strong>()</strong> when we define
-							our function.
-						</li>
-						<li>
-							A function may optionally <strong>return</strong> some information
-						</li>
-						<li>
-							This could be <strong>some value</strong> from a result of a calculation, or
-							it can be <strong>another function</strong>!
-						</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3><i class="fa fa-exclamation-triangle"></i>
-						Some words of caution about functions...
-					</h3>
-					<em>
-						Be careful not to overwrite built-in Python functions like <strong>print</strong>!
-					</em>
-				</section>
-
-				<section>
-					<p>Create a file named <strong>session2_recap.py</strong> and enter the following:</p>
+					<h3>👓  What is a dictionary?</h3>
+					It is a native Python data structure where we have a <strong>key</strong>
+					(group name) and an assocaited <strong>value</strong>
 					<div data-markdown>
 						```python
-						def print_hello():
-							print("Hello world!")
-
-						def add_one(number):
-							return number + 1
-
-						print_hello()
-						eight_plus_one = add_one(8)
-						print(eight_plus_one)
-						```
+						people = {"instructor1" : "Tania",
+											"instructor2" : "Lorenzo",
+										  "ambassador" : "Imogen"}```
 					</div>
-					<p>
-						It should print <strong>Hello world!</strong> followed by
-						<strong>9</strong> on the next line.
-					</p>
+					That means you can use the <code>key</code> to call the values in the dictionary
+					<pre><code>people['ambassador']</code></pre>
 				</section>
 
-				<section>
-					<h3><i class="fa fa-reply" aria-hidden="true"></i>
-						Recap: Lists
-					</h3>
-					<ul>
-						<li>Lists are an <strong>ordered</strong> collection of items</li>
-						<li>List items go between square brackets <strong>[ ]</strong></li>
-						<li>
-							We can put any items in a list, each of which is separated by a comma
-						</li>
-						<li>The first item starts at position (index) 0!</li>
-					</ul>
-				</section>
+        <section>
+          <p>Replace the content of <strong>session2_recap.py</strong> with the following:</p>
+          <div data-markdown>
+            ```python
+            member = {"name": "Tania",
+											"favourite_language": "Python"}
+            for key, value in member.items():
+              # replaces underscores with spaces so it reads nicer
+              key = key.replace("_", " ")
 
-				<section>
-					<p>Replace the content of <strong>session2_recap.py</strong> with the following:</p>
-					<div data-markdown>
-						```python
-						instructors = ["Chris", "Darren", "Nina", "Tania"]
-						print(f"The second instructor in the list is {instructors[1]}")
-						```
-					</div>
-					<p>
-						It should print <strong>The second instructor in the list is Darren</strong>.
-					</p>
-				</section>
+              print(f"The member's {key} is {value}.")
+            ```
+          </div>
+          <p>
+            It should print <code>The member's name is Tania.</code> followed by
+            <code>The member's favourite language is Python.</code>
+          </p>
+        </section>
 
-				<section>
-					<h3><i class="fa fa-reply" aria-hidden="true"></i>
-						Recap: For loops
-					</h3>
-					<p>
-						Commonly used to go through each item in <strong>a collection of items</strong>,
-						such as <strong>a list</strong> or <strong>a dictionary</strong>.
-					</p>
-					<p class="fragment">Since we saw how to loop through a list last time, for completeness,
-						let's see an example on how to loop through a dictionary...</p>
-				</section>
+        <section>
+          <h3><i class="fa fa-reply" aria-hidden="true"></i>
+            Recap: Logic
+          </h3>
+          <ul>
+            <li>Logic allows our program to <strong>make decisions</strong> based on given conditions.</li>
+            <li>
+              A <strong>condition</strong> tests whether something is <strong>True</strong>
+              or not
+            </li>
+          </ul>
+          <p class="fragment">Let's see our final recap example before moving on...</p>
+        </section>
 
-				<section>
-					<p>Replace the content of <strong>session2_recap.py</strong> with the following:</p>
-					<div data-markdown>
-						```python
-						member = {"name": "Darren", "favourite_language": "Python"}
-						for key, value in member.items():
-							print(f"The member's {key.replace('_', ' ')} is {value}.")
-						```
-					</div>
-					<p>
-						It should print <strong>The member's name is Darren.</strong> followed by
-						<strong>The member's favourite language is Python.</strong>
-					</p>
-				</section>
+        <section>
+          <p>Replace the content of <strong>session2_recap.py</strong> with the following:</p>
+          <div data-markdown>
+            ```python
+            age = 20
+            if age < 18:
+              print("You are too young to drink! Naughty!")
+            elif age > 65:
+              print("You're old... maybe you should chill out on drinking!")
+            else:
+              print("Drink responsibly (if you must)!")
+            ```
+          </div>
+          <p>
+            It should print <strong>Drink responsibly (if you must)!</strong>
+          </p>
+        </section>
 
-				<section>
-					<h3><i class="fa fa-reply" aria-hidden="true"></i>
-						Recap: Logic
-					</h3>
-					<ul>
-						<li>Logic allows our program to <strong>make decisions</strong> based on given conditions.</li>
-						<li>
-							A <strong>condition</strong> tests whether something is <strong>True</strong>
-							or not
-						</li>
-					</ul>
-					<p class="fragment">Let's see our final recap example before moving on...</p>
-				</section>
+        <section>
+          <h3>And now...</h3>
+          <p>
+            ...that you know some Python, for the rest of the course,
+            we will take a look at specific things we can do with it!
+          </p>
+          <p>
+            Specifically, in the next two sessions, we'll be looking at how to have
+            more control of the back-end using <strong>Flask</strong>!
+          </p>
+        </section>
 
-				<section>
-					<p>Replace the content of <strong>session2_recap.py</strong> with the following:</p>
-					<div data-markdown>
-						```python
-						age = 20
-						if age < 18:
-							print("You are too young to drink! Naughty!")
-						elif age > 65:
-							print("You're old... maybe you should chill out on drinking!")
-						else:
-							print("Drink responsibly (if you must)!")
-						```
-					</div>
-					<p>
-						It should print <strong>Drink responsibly (if you must)!</strong>
-					</p>
-				</section>
+        <section>
+          <h3><i class="fa fa-flask" aria-hidden="true"></i>What is Flask?</h3>
+        </section>
 
-				<section>
-					<h3>And now...</h3>
-					<p>Let's talk about <strong>Flask</strong>!</p>
-				</section>
+        <section>
+          <div><img src="assets/flask.webp" alt="Jokey flask"></div>
+          <em class="fragment">Alright, it's not quite the same kind of flask that Cumberbatch is holding...</em>
+        </section>
 
-				<section>
-					<h3>What is Flask?</h3>
-				</section>
+        <section>
+          <h3><i class="fa fa-truck" aria-hidden="true"></i>
+            A detour...
+          </h3>
+          <p>
+            Before we cover <strong>Flask</strong> in more details, there are some important concepts we need to go
+            through first...
+          </p>
+          <p class="fragment">So for the time being:</p>
+          <p class="fragment">
+            <strong>Flask</strong> is a framework (more on what that means later)
+            which allows us to control <strong>our server</strong> using Python.
+          </p>
+        </section>
 
-				<section>
-					<div><img src="assets/flask.webp" alt="Jokey flask"></div>
-					<em class="fragment">Alright, it's not quite the same kind of flask that Cumberbatch is holding...</em>
-				</section>
+        <section>
+          <h3><i class="fa fa-lightbulb-o"></i>
+            Why do we need/use a server?
+          </h3>
+          <p>
+            A server is used so we can <strong>share our web application</strong>
+            with the world over the Internet.
+          </p>
+          <p class="fragment">
+            But... <strong><em>how</em></strong> does it help make our application accessible over the Internet?
+          </p>
+          <p class="fragment">To understand that, we need to take a look at
+            <strong>what actually happens</strong> when we try to access our application
+            through our browser.
+          </p>
+        </section>
 
-				<section>
-					<h3><i class="fa fa-truck" aria-hidden="true"></i>
-						A detour...
-					</h3>
-					<p>
-						Before we cover <strong>Flask</strong> in more details, there are some important concepts we need to go
-						through first...
-					</p>
-					<p class="fragment">So for the time being:</p>
-					<p class="fragment">
-						<strong>Flask</strong> is a framework (more on what that means later)
-						which allows us to control <strong>our server</strong> using Python.
-					</p>
-				</section>
+        <section>
+          <div style="position:relative;">
+            <img src="assets/req_res_cycle.png" alt="The Request-Response Cycle">
+            <strong><p id="req-url" class="fragment">https://pawlean.com</p></strong>
+            <div id="res" class="fragment">
+              <strong><p style="margin:0;">&lt;!DOCTYPE html&gt;</p></strong>
+              <strong><p style="margin:0;">&lt;html&gt;...&lt;/html&gt;</p></strong>
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<h3><i class="fa fa-lightbulb-o"></i>
-						Why do we need/use a server?
-					</h3>
-					<p>
-						A server is used so we can <strong>share our web application</strong>
-						with the world over the Internet.
-					</p>
-					<p class="fragment">
-						But... <strong><em>how</em></strong> does it help make our application accessible over the Internet?
-					</p>
-					<p class="fragment">To understand that, we need to take a look at
-						<strong>what actually happens</strong> when we try to access our application
-						through our browser.
-					</p>
-				</section>
+        <section>
+          <ul>
+            <li>
+              When we type in a web address (URL) in our browser, we are in fact sending
+              <strong>a request</strong> to the server running the website we want to visit
+            </li>
+            <li class="fragment">
+              Based on the URL we typed in, the server uses this information to generate the
+              correct HTML page to send back as <strong>a response</strong>.
+            </li>
+            <li class="fragment">
+              Our browser then processes the received HTML, along with any CSS and JavaScript
+              on the page, and renders out the pretty web pages that we see!
+            </li>
+          </ul>
+        </section>
 
-				<section>
-					<div style="position:relative;">
-						<img src="assets/req_res_cycle.png" alt="The Request-Response Cycle">
-						<strong><p id="req-url" class="fragment">https://pawlean.com</p></strong>
-						<div id="res" class="fragment">
-							<strong><p style="margin:0;">&lt;!DOCTYPE html&gt;</p></strong>
-							<strong><p style="margin:0;">&lt;html&gt;...&lt;/html&gt;</p></strong>
-						</div>
-					</div>
-				</section>
+        <section>
+          <h3><i class="fa fa-link" aria-hidden="true"></i>
+            If you did the Beginners course...
+          </h3>
+          <p>
+            Your pretty HTML pages are actually being run (served) over the GitHub server, which
+            is what allowed you to see your projects publicly online!
+          </p>
+        </section>
 
-				<section>
-					<ul>
-						<li>
-							When we type in a web address (URL) in our browser, we are in fact sending
-							<strong>a request</strong> to the server running the website we want to visit
-						</li>
-						<li class="fragment">
-							Based on the URL we typed in, the server uses this information to generate the
-							correct HTML page to send back as <strong>a response</strong>.
-						</li>
-						<li class="fragment">
-							Our browser then processes the received HTML, along with any CSS and JavaScript
-							on the page, and renders out the pretty web pages that we see!
-						</li>
-					</ul>
-				</section>
+        <section>
+          <h3>And now...</h3>
+          <p>Let's talk about <strong>Flask</strong> for real this time!</p>
+        </section>
 
-				<section>
-					<h3><i class="fa fa-link" aria-hidden="true"></i>
-						If you did the Beginners course...
-					</h3>
-					<p>
-						Your pretty HTML pages are actually being run (served) over the GitHub server, which
-						is what allowed you to see your projects publicly online!
-					</p>
-				</section>
+        <section>
+          <h3><i class="fa fa-server" aria-hidden="true"></i>
+            What is Flask?
+          </h3>
+          <ul>
+            <li>
+              Flask is a <strong>framework</strong> - a set of code written by some other clever
+              people that <strong>we can re-use</strong>
+            </li>
+            <li>
+              It's better to use Flask's code, rather than writing our own, to handle the requests
+              and responses we talked about earlier since <strong>it's quite complicated!</strong>
+            </li>
+            <li>
+              Re-using Flask's code allows us to jump straight into designing and building
+              our applications!
+            </li>
+          </ul>
+        </section>
 
-				<section>
-					<h3>And now...</h3>
-					<p>Let's talk about <strong>Flask</strong> for real this time!</p>
-				</section>
+        <section>
+          <h3>So... how does Flask work?</h3>
+        </section>
 
-				<section>
-					<h3><i class="fa fa-server" aria-hidden="true"></i>
-						What is Flask?
-					</h3>
-					<ul>
-						<li>
-							Flask is a <strong>framework</strong> - a set of code written by some other clever
-							people that <strong>we can re-use</strong>
-						</li>
-						<li>
-							It's better to use Flask's code, rather than writing our own, to handle the requests
-							and responses we talked about earlier since <strong>it's quite complicated!</strong>
-						</li>
-						<li>
-							Re-using Flask's code deals with said complex tasks, allowing us to focus on the
-							application we want to build!
-						</li>
-					</ul>
-				</section>
+        <section>
+          <ul>
+            <li>
+              When we first start a Flask program, it starts up <strong>a server</strong> which we have
+              control over using Python.
+            </li>
+            <li class="fragment">
+              Users can then access our website in their browser!
+            </li>
+            <li class="fragment">
+              Instead of returning some HTML <strong>directly</strong>, Flask
+              builds up the <strong>response</strong> HTML using something called
+              <strong>a template engine</strong>.
+            </li>
+            <li class="fragment">
+            This allows HTML to be generated
+            <strong>dynamically<i class="fa fa-rocket" aria-hidden="true"></i></strong>
+            rather than having to write them all <strong>in full</strong>
+            in advance (more details next session)!
+            </li>
+          </ul>
+        </section>
 
-				<section>
-					<h3>So... how does Flask work?</h3>
-				</section>
+        <section id="git-hands-on">
+          <h3>
+            <i class="fa fa-cogs" aria-hidden="true"></i>
+            Hands on: our first git repo
+          </h3>
+          <p>
+            Before we begin with our first Flask app, we'll set up a new git repository
+            together to make sure your app has the <strong>right folder structure</strong>
+            that can be used for your competition entry.
+          </p>
+          <p class="fragment">We'll follow this step by step guide on how to create a new repository
+            <a href="https://github.com/trallard/Mcr_CodeFirst_Python/blob/master/git-with-gitkraken.md"
+               target="_blank">
+              here
+            </a>
+            up to and including the <strong>Cloning your repository to your laptop</strong> section.
+          </p>
+          <p class="fragment">
+            Name your repository
+            <strong>cfg-python-project</strong> or similar on GitHub.
+          </p>
+        </section>
 
-				<section>
-					<p>
-						When we first start a Flask program, it starts up <strong>a server</strong> which we have
-						control over using Python. Users can then access our website in their browser!
-					</p>
-				</section>
+        <section>
+          Assuming you called your repo <strong>cfg-python-project</strong>, inside the repo folder,
+          create more files and folders in here until it structurally looks like this:
+          <div data-markdown>
+						```bash
+~/cfg-python-project
+    |-- /templates # HTML template files go in here
+        |-- index.html  # You need to make this in your text editor
+    |-- /static  # everything else (CSS, JS, images etc) goes in here
+    |-- app.py   # You need to make this in your text editor
+    |-- README.md   # generated by GitHub
+    |-- .gitignore  # generated by GitHub ```
+          </div>
+          <p><strong><i class="fa fa-exclamation-triangle"></i></strong>
+            It's <strong>very important</strong> you name the folders <strong>exactly</strong>
+            the way they are shown in this diagram!
+          </p>
+        </section>
 
-				<section>
-					<p>Whenever a user type in the URL to go on our website, it goes through the exact journey
-						shown on the diagram earlier... with one exception
-					</p>
-					<p class="fragment">
-						A diagram will hopefully clear this up...
-					</p>
-				</section>
+        <section>
+          <h3>Creating new files and folders in the repo</h3>
+          <p>
+            The easiest way to create the files and folders is to have the repo folder
+            opened in your text editor (Atom/Sublime Text).
+          </p>
+          <p class="fragment">
+            Your text editor also provides a <strong>more reliable</strong> way to check that your
+            repository has all the required files and folders.
+          </p>
+          <p class="fragment">
+            This is because files beginning with a dot
+            (such as <code>.gitignore</code>) doesn't show up (correctly) when viewed through
+            File Explorer/Finder.
+          </p>
+        </section>
 
-				<section>
-					<figure>
-						<img src="assets/webapp.png" alt="Flask app">
-					</figure>
-				</section>
+        <section>
+          <p>
+            To open the repo folder, on the top menu bar of your text editor, click
+            <strong>File</strong>, then <strong>Open Folder</strong>.
+            The folder is successfully opened if you can see it on the left sidebar.
+          </p>
+          <p class="fragment">
+            Right click the opened folder on the sidebar, and you should be given the options
+            to create new files and folders as needed to match the required folder structure shown
+            before.
+          </p>
+        </section>
 
-				<section>
-					<p>
-						The only <strong>key difference</strong> in this diagram from our previous one is that rather than returning the HTML
-						<strong>directly</strong>, Flask runs the HTML through a filter called <strong>a template engine</strong> (Jinja2).
-					</p>
-					<p class="fragment">
-						This allows HTML to be generated <strong>dynamically <i class="fa fa-rocket" aria-hidden="true"></i></strong>
-						rather than having to write them all <strong>in full</strong> (by hand) in advance, which can get tedious quickly!
-					</p>
-				</section>
+        <section id="html-template">
+          <p>
+            In the <strong>templates/index.html</strong> file, put in some bare minimal HTML like
+            the following (so we can push this to GitHub later):
+          </p>
+          <div data-markdown>
+            ```html
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
 
-				<section>
-					<h3>
-						<i class="fa fa-cogs" aria-hidden="true"></i>
-						Hands on: our first Flask program
-					</h3>
-				</section>
+            &lt;head&gt;
+              &lt;meta charset="UTF-8"&gt;
+              &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+              &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+              &lt;title&gt;First flask app&lt;/title&gt;
+            &lt;/head&gt;
 
-				<section>
-					<h2>The end!</h2>
-				</section>
+            &lt;body&gt;
+              &lt;h1&gt;Hello world!&lt;/h1&gt;
+            &lt;/body&gt;
 
-			</div>
-		</div>
+            &lt;/html&gt;
+            ```
+          </div>
+        </section>
+
+        <section>
+          <h3>
+            <i class="fa fa-cogs" aria-hidden="true"></i>
+            Hands on: our first Flask program
+          </h3>
+        </section>
+
+        <section>
+          In <strong>app.py</strong>, type in the following code:
+          <div data-markdown>
+            ```python
+            from flask import Flask
+
+            app = Flask("my_first_app")
+
+            @app.route("/")
+            def say_hello():
+              return "hello world!"
+
+            app.run(debug=True)
+            ```
+          </div>
+          <p>
+            Then, start the app by the usual drift: <code>cd</code> into the
+            <strong>cfg-python-project</strong> folder and type
+            <code>python app.py</code></p>
+        </section>
+
+        <section id="completed-first-app">
+          You should see something similar to the following in your terminal:
+          <div data-markdown>
+            ```bash
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 123-456-719
+            ```
+          </div>
+          <p>
+            If you get that, great! Let's commit and push this to the git repo
+            we just made together...
+          </p>
+          <p>... then we'll dissect what all of that code did.</p>
+          <hr>
+          <a href="#/bonus-exercises">
+            <small>Already done? Here are some additional exercises for you to do!</small>
+          </a>
+        </section>
+
+        <section>
+          <h3>🤔 Our first Flask app: what's happening?</h3>
+          <p>
+            First of all, check that you can see <strong>hello world!</strong> by typing
+            <code>localhost:5000</code> in your web browser.
+          </p>
+          <hr>
+          <p class="fragment">
+            Since Flask is an external library, we have to <strong>import</strong>
+            it first before we can use it.
+          </p>
+          <p class="fragment">
+            The next line creates a new instance of a Flask app
+            that we can then work with.
+          </p>
+        </section>
+
+        <section id="flask-explain">
+          <p>
+            The <code>@app.route("/")</code> line (which has to be above a function definition)
+            <strong><i class="fa fa-rocket" aria-hidden="true"></i></strong> a normal Python
+            function so that it's capable of responding to our request at
+            <code>localhost:5000</code>
+          </p>
+          <p class="fragment">
+            The final <code>app.run(debug=True)</code> line starts up a server
+            controllable by Flask each time we type <code>python app.py</code> in the
+            terminal.
+          </p>
+          <p class="fragment">
+            Including the <code>debug=True</code> part in the function call tells Flask to
+            automatically restart the program each time we made changes to our Python code.
+          </p>
+        </section>
+
+        <section>
+          <h3>What happens if...</h3>
+          <p>... we visit some random URL, like <code>localhost:5000/qwerty</code>?</p>
+          <img class="fragment" src="./assets/404.png" alt="Web page not found">
+        </section>
+
+        <section>
+          <p>We got a <strong>Not Found</strong> error as we haven't specified in our
+          code on how to respond to <code>localhost:5000/qwerty</code>.</p>
+          <p class="fragment">
+            But we haven't written in <code>localhost:5000</code> anywhere in our code,
+            so why did that work?
+          </p>
+          <p class="fragment">
+            That's because Flask uses <strong>relative URLs</strong>, which means the <code>"/"</code>
+            in <code>app.route("/")</code> translates to <code>localhost:5000/</code>!
+          </p>
+          <small class="fragment">
+            <hr>
+            If there's nothing after the first single slash, most browsers (confusingly!)
+            hide them by default. This means <code>localhost:5000</code> is the same as
+            <code>localhost:5000/</code>!
+          </small>
+        </section>
+
+        <section>
+          <h3>Routing</h3>
+          <p>
+            Flask uses relative URL so our app will <strong>work in a consistent way</strong>, no matter
+            where it's hosted.
+          </p>
+          <p class="fragment">
+            To find out the relative URL of a web address, look out for the value <strong>after the
+            first single slash</strong> including the slash itself.
+          </p>
+        </section>
+
+        <section>
+          <p>
+            For example, the relative URL <code>localhost:5000/qwerty</code> is
+            <code>/qwerty</code>.
+          </p>
+          <p class="fragment">
+            To stop Flask returning the <strong>Not Found</strong> error we saw earlier,
+            we need a function with <code>@app.route("/qwerty")</code>
+            above it so Flask knows how to respond when a user visits that particular URL.
+          </p>
+          <small class="fragment">
+            <hr>
+            See bonus exercises 1 on how to write a catch-all <code>@app.route</code> to accept
+            any value (except slash) after the first slash!
+          </small>
+        </section>
+
+        <section>
+          <h3><i class="fa fa-code" aria-hidden="true"></i>
+            Returning <span style="margin-right: 10px;">HTML</span>
+            pages
+          </h3>
+          <p>
+            So far, we've been returning simple text as response to the browser
+            when we visit our Flask app.
+          </p>
+          <p class="fragment">
+            But that's not very good when we want to display <strong>complex web pages</strong>.
+          </p>
+          <p class="fragment">
+            We need a way to return the pages in HTML instead, as you know them from
+            the beginner's course!
+          </p>
+        </section>
+
+        <section>
+          In <strong>app.py</strong>, update the code to the following:
+          <div data-markdown>
+            ```python
+            from flask import Flask, render_template
+
+            app = Flask("my_first_app")
+
+            @app.route("/")
+            def say_hello():
+              return render_template("index.html")
+
+            app.run(debug=True)
+            ```
+          </div>
+          <p class="fragment">
+            Save the file, go to <code>localhost:5000</code> again and you should see
+            a <strong>larger</strong> "Hello world!" coming from the HTML we made earlier!
+          </p>
+          <small class="fragment">
+            <hr>
+            If you're using Chrome, you might have to press
+            Ctrl/Cmd + Shift + R to do a "hard refresh" before you see the changes!
+          </small>
+        </section>
+
+        <section>
+          <h3><i class="fa fa-paint-brush"></i>
+            Snazzing up the page with CSS
+          </h3>
+          <p>
+            Apart from seeing a larger "Hello world", the HTML page still looks
+            <strong>no different</strong> from our simple text response...
+          </p>
+          <p class="fragment">
+            So let's glam it up a bit by changing the font...
+          </p>
+          <p class="fragment">
+            ...and just to show CSS works, we'll turn the page purple!
+          </p>
+        </section>
+
+        <section>
+          <p>
+            Create a new CSS file called <strong>app.css</strong> inside the
+            static folder, then put in something like this in the CSS file:
+          </p>
+          <div data-markdown>
+            ```css
+            h1 {
+              font-family: Arial, sans-serif;
+            }
+
+            body {
+              background-color: purple;
+            }
+            ```
+          </div>
+        </section>
+
+        <section id="css-include">
+          Then, just before the closing <code>head</code> tag in
+          <strong>templates/index.html</strong>, add in the following line:
+          <div data-markdown>
+            ```html
+            &lt;link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}"&gt;
+            ```
+          </div>
+          <p class="fragment">
+            The <strong>url_for</strong> function comes from Flask; it allows
+            full URLs to resources (CSS, JavaScript) to always be
+            <strong>generated correctly</strong>...
+          </p>
+          <p class="fragment">... as long we put the CSS in the <strong>static</strong> folder!</p>
+        </section>
+
+        <section>
+          <p>If you followed along correctly, your page should now look like this:</p>
+          <img class="fragment" src="assets/page_with_css.png" alt="Page snazzed up slightly with CSS">
+        </section>
+
+        <section>
+          <h2>The end!</h2>
+        </section>
+
+        <section id="bonus-exercises">
+          <h3>Bonus exercises</h3>
+          <small>If you're stuck on any of these exercises,
+            <a href="http://flask.pocoo.org/docs/0.12/" target="_blank">this page</a>
+            is likely to contain the answer you're looking for!
+          </small>
+          <ol>
+            <li>
+              Write a function, then bind the function with an appropriate routing pattern,
+              so that when you visit <code>localhost:5000/whatever</code> with <strong>any value</strong>
+              in the "whatever" part, it won't lead to an error page.
+            </li>
+            <li>
+              Write a function, then bind the function with an appropriate routing pattern,
+              so that when you visit <code>localhost:5000/1/2</code>, you can <strong>easily capture</strong>
+              the sum of the two numbers after the first slash and return it onto the page.
+            </li>
+          </ol>
+          <hr>
+          <a href="#/bonus-exercises-2"><small>More exercise</small></a>
+          <a href="#/completed-first-app">
+            <small>Go back</small>
+          </a>
+        </section>
+
+        <section id="bonus-exercises-2">
+          <h3>Bonus exercises</h3>
+          <p>
+            3.* Modify the function in exercise 2, and adapting the simple HTML page we made earlier,
+            return the answer with the HTML instead.
+          </p>
+          <p>
+            4. Modify the function again so that it returns "Not a number" when you visit URLs with
+            non-numerical values after the first slash, like <code>localhost:5000/p/2</code>
+          </p>
+          <hr>
+          <a href="#/bonus-exercises-3"><small>More exercises</small></a>
+          <a href="#/completed-first-app">
+            <small>Go back</small>
+          </a>
+        </section>
+
+        <section id="bonus-exercises-3">
+          <p>
+            5. Create another HTML page called <strong>error.html</strong> inside the templates folder.
+            Then, write a function with <code>@app.errorhandler(404)</code> above it so that when you visit
+            an unknown URL, your <strong>error.html</strong> is shown rather than Flask's
+            <strong>Not Found</strong> error page.
+          </p>
+          <p>
+            6.** If you've done the Beginners course, adapt the website you made for your competition
+            such that the HTML, CSS and JavaScript files would load in correctly with Flask!
+          </p>
+          <hr>
+          <a href="#/completed-first-app">
+            <small>Go back</small>
+          </a>
+        </section>
+
+      </div>
+    </div>
 
 		<script src="reveal.js/lib/js/head.min.js"></script>
 		<script src="reveal.js/js/reveal.js"></script>
