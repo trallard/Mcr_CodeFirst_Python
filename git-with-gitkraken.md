@@ -6,6 +6,7 @@
   - [On GitHub](#creating-a-new-git-repository)
   - [Cloning it locally to laptop](#cloning-your-repository-to-your-laptop)
 - [Setting up the repository](#setting-up-the-repository)
+- [Committing and pushing local changes back to GitHub](#committing-and-pushing-local-changes-back-to-github)
 - [Creating branches](#creating-a-new-branch)
   - [Pull requests](#creating-a-pull-request)
 - [Merge conflicts](#resolving-merge-conflicts)
@@ -84,9 +85,29 @@ like the following screenshot:
 
 ![Flask folder structure](assets/flask_folder_structure2.png)
 
-Go ahead and create those files and folders following the structure outlined above!
+The easiest way to create the files and folders required is by opening the local repository folder in your
+text editor (Atom/Sublime Text). You can do that by clicking "File", then "Open Folder" on the top menu bar.
+This should then pop up a window which allows you to navigate to the local repository you want to open.
+
+If the name of the local repository folder then appear on the left sidebar, then you've successfully opened
+local repository folder in the text editor.
+
+Next, right click on the name of the repository folder on the sidebar: this should bring up options where you
+can create a new file/folder. Go ahead and create those files and folders following the structure
+outlined above!
+
 To save you from typing out all of the code from scratch, you are welcomed to copy and paste those I have made [in this repo](https://github.com/darrenvong/ShefCodeFirst-GitDemoRepo) in the process of writing this guide to create the required files.
 
+The core folders and files you must create are:
+- templates (folder)
+- static (folder)
+- app.py (file)
+- .gitignore (file)
+
+**Note: It is _very important_ that you name the `templates` and `static` folders _exactly_ as they are
+spelt here.**
+
+### Committing and pushing local changes back to GitHub
 Once you have done that, go back to GitKraken. If you still have your repository opened there, it should look
 something like this:
 
