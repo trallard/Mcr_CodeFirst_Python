@@ -43,12 +43,12 @@
 						<span style="margin-left: 10px">together</span> (Part 2)
 					</h2>
 					<p>Linking together the back-end with the front-end</p>
-					<p class='author'> Darren Vong
+					<p class='author'> Lorenzo Grespian
 					<br>
-				 <a href="http://twitter.com/mrdarrenv" target="_blank">
+				 <!-- <a href="http://twitter.com/mrdarrenv" target="_blank">
 					<i class="fa fa-twitter" aria-hidden="true">
-					</i> @mrdarrenv
-				 </a>
+					</i> -----
+				 </a> -->
  		 			</p>
 				</section>
 
@@ -63,63 +63,36 @@
 							http://bitsandchips.me/Mcr_CodeFirst_Python/</a></p>
 				</section>
 
-				<section>
-					<h3><i class="fa fa-reply" aria-hidden="true"></i>
-						Recap: Facebook Flask Challenge <i class="fa fa-flask" aria-hidden="true"></i>
-					</h3>
-				</section>
+				<section id="extra">
+          <h3><i class="fa fa-plus"></i>
+            Bonus exercises!
+          </h3>
+          <p>
+            If at any point during this session you are finished with the live
+            coding exercises we are doing...
+          </p>
+          <p>... then check out the bonus exercises <a href="#/bonus-exercises">here</a>!</p>
+        </section>
 
 				<section>
-					<script src="https://gist.github.com/darrenvong/7a14fb6012c9c5412fdbc47c2af68584.js"></script>
-				</section>
-
-				<section>
-					<p>
-						The <strong>two bugs</strong> in the application highlight some commonly
-						made mistakes:
-					</p>
-					<p class="fragment">
-						<i class="fa fa-times" aria-hidden="true" style="color:#ef3a34;"></i>
-						1. Be careful not to name your Python file <strong>flask.py</strong>, or
-						for future references, any name that's identical to the library you are
-						going to import, as your copy of the code will <em><strong>hide</strong></em>
-						the actual flask library you want to import!
-					</p>
-				</section>
-
-				<section>
-					<p>
-						<i class="fa fa-times" aria-hidden="true" style="color:#ef3a34;"></i>
-						2. The <strong><em>app.run(debug=True)</em></strong> line is
-						<strong>wrongly indented</strong>: unlike other languages which
-						mark a block of code with some form of brackets, Python relies on the
-						<strong>indentations</strong> to do the same job, so pay attention to
-						them in your code!
-					</p>
-				</section>
-
-				<section>
-					<h3> <i class="fa fa-reply" aria-hidden="true"></i>
-						Recap: What happens when we visit a web page?
-					</h3>
-				</section>
-
-				<section>
-					<figure style="position: relative;">
-						<img src="assets/req_res_cycle.png" alt="The Request-Response Cycle">
-						<strong>
-							<p id="req-url">https://pawlean.com</p>
-						</strong>
-						<div id="res">
-							<strong>
-								<p style="margin:0;">&lt;!DOCTYPE html&gt;</p>
-							</strong>
-							<strong>
-								<p style="margin:0;">&lt;html&gt;...&lt;/html&gt;</p>
-							</strong>
-						</div>
-					</figure>
-				</section>
+				 <h3> <i class="fa fa-reply" aria-hidden="true"></i>
+					 Recap: What happens when we visit a web page?
+				 </h3>
+				 <figure style="position: relative;">
+					 <img src="assets/req_res_cycle.png" alt="The Request-Response Cycle">
+					 <strong>
+						 <p id="req-url">https://pawlean.com</p>
+					 </strong>
+					 <div id="res">
+						 <strong>
+							 <p style="margin:0;">&lt;!DOCTYPE html&gt;</p>
+						 </strong>
+						 <strong>
+							 <p style="margin:0;">&lt;html&gt;...&lt;/html&gt;</p>
+						 </strong>
+					 </div>
+				 </figure>
+			 </section>
 
 				<section>
 					<ul>
@@ -139,28 +112,32 @@
 				</section>
 
 				<section>
-					<h3><i class="fa fa-reply" aria-hidden="true"></i>
-						Recap: Flask <i class="fa fa-flask" aria-hidden="true"></i>
-					</h3>
-				</section>
+          <h3><i class="fa fa-reply" aria-hidden="true"></i>
+            Recap: Flask <i class="fa fa-flask" aria-hidden="true"></i>
+          </h3>
+          <ul>
+            <li>
+              A <strong>framework</strong> which handles the complexity of
+              <strong>requests</strong> & <strong>responses</strong>
+            </li>
+            <li class="fragment">
+              This allows us to focus on the more <strong>fun stuff</strong> like
+              designing and writing our application.
+            </li>
+          </ul>
+        </section>
 
 				<section>
-					<p>
-						<strong>A framework</strong> containing code written by somebody else
-						which deals with the complexity of handling <strong>requests</strong> &
-						<strong>responses</strong>, so we can focus on writing the interesting part of
-						our application.
-					</p>
-				</section>
-
-				<section>
-					<p>
-						Before returning the HTML, Flask runs it through a
-						<strong>template engine</strong>
-						which generates most of the HTML
-						<strong>dynamically</strong> before returning it as a response to our browser.
-					</p>
-				</section>
+          <ul>
+            <li>
+              Recall from the last session that Flask uses templates, and they are run
+              through a template engine to generate the full HTML page <strong>dynamically</strong>.
+            </li>
+            <li class="fragment">
+              The full HTML page are then returned as a response back to our browser.
+            </li>
+          </ul>
+        </section>
 
 				<section>
 					<h3>
@@ -199,15 +176,20 @@
 				</section>
 
 				<section>
-					<h3><i class="fa fa-lightbulb-o" aria-hidden="true"></i>
-						What is a template engine? Why do we use it?
-					</h3>
-					<p>
-						To understand why we write HTML templates and use a
-						template engine to process them, we need to take a quick look
-						at how web pages were made <strong>before template engines existed</strong>.
-					</p>
-				</section>
+          <h3><i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+            What is a template engine? Why do we use it?
+          </h3>
+          <ul>
+            <li>
+              A template engine is a tool which allows us to write our HTML pages in
+              smaller, re-usable parts called <strong>templates</strong>.
+            </li>
+            <li class="fragment">
+              To understand why we use a template engine, we need to take a quick look
+              at how web pages were made <strong>before template engines existed</strong>.
+            </li>
+          </ul>
+        </section>
 
 				<section>
 					<p>
@@ -218,73 +200,78 @@
 					<p class="fragment">
 						This is essentially what you did if you completed the Beginners course!
 					</p>
-					<p class="fragment">Revisiting a familiar diagram might make this clearer...</p>
 				</section>
 
 				<section>
-					<figure style="position: relative;">
-						<img src="assets/req_res_cycle.png" alt="The Request-Response Cycle">
-						<strong>
-							<p id="req-url">https://pawlean.com</p>
-						</strong>
-						<div id="res">
-							<strong>
-								<p style="margin:0;">&lt;!DOCTYPE html&gt;</p>
-							</strong>
-							<strong>
-								<p style="margin:0;">&lt;html&gt;...&lt;/html&gt;</p>
-							</strong>
-						</div>
-					</figure>
-				</section>
+          <h3>
+            Problems with static HTML <span style="margin-left:10px;">pages</span>...
+          </h3>
+          <ul>
+            <li>
+              Re-writing (or lots of copy and pasting) common HTML parts each time we make
+              a new page gets <strong>tedious</strong>
+            </li>
+            <li class="fragment">Repetition of code is (generally) a bad idea.</li>
+          </ul>
+        </section>
 
-				<section>
-					<h3>
-						Problems with static HTML <span style="margin-left:10px;">pages</span>...
-					</h3>
-					<p>
-						It gets <strong>tedious</strong> as we'd have to write the HTML for
-						each page we intend our users to visit <strong>from scratch</strong>
-						(or lots of copy and pasting of common parts), even though there are only
-						small differences between pages.
-					</p>
-					<p class="fragment">Repetition of code is (generally) a bad idea.</p>
-				</section>
+        <section>
+          <h3>
+            Problems with static HTML <span style="margin-left:10px;">pages</span>... (cont.)
+          </h3>
+          <ul id="static-problem-list">
+            <li>
+              Static pages can't be adapted (easily) to cases where the content is different
+              depending on, say, the user visiting the page.
+            </li>
+            <li class="fragment">
+              This is what we'd referred to as <strong>dynamic pages</strong>, where we only know
+              how to lay out & style the page but not all contents up front.
+            </li>
+            <li class="fragment">
+              Facebook and Twitter are great examples: the feed is different for everyone visiting, as it
+              depends on <strong>many variable factors</strong> such as who they follow/are friends with etc.
+            </li>
+          </ul>
+        </section>
 
-				<section>
-					<h3>
-						Problems with static HTML <span style="margin-left:10px;">pages</span>... (cont.)
-					</h3>
-					<p>
-						Writing the HTML ahead of the user's visit for <strong>dynamic pages</strong>
-						becomes tricky when we only know how to lay out & style the page, but we
-						<strong>don't know what the content looks like</strong> until they visit the page.
-					</p>
-				</section>
+        <section>
+          <h3>Solution: write and use HTML <span style="margin-left:10px;">templates!</span></h3>
+        </section>
 
-				<section>
-					<p>
-						Facebook and Twitter are great examples: the feed is different for everyone visiting,
-						as it <strong>depends on many variable factors</strong> such as who they follow/are friends with.
-					</p>
-				</section>
-				<section>
-					<h3>Solution: write and use HTML <span style="margin-left:10px;">templates!</span></h3>
-				</section>
+				<section id="templates-static-pages">
+				          <h3><i class="fa fa-thumb-tack"></i>
+				            How do templates solve our problems for static pages?
+				          </h3>
+				          <p>
+				            For static pages, where we know all of the HTML markup we want to write anyway,
+				            we can break it into multiple, smaller template parts.
+				          </p>
+				          <p class="fragment">
+				            This makes common parts on our web page <strong>easier to maintain</strong> and
+				            <strong>re-usable</strong>.
+				          </p>
+				          <p class="fragment">
+				            Suppose you need to add a new link to a navigation bar, you only need to
+				            do this <strong>once</strong> as opposed to <strong>every page</strong>
+				            you have across the entire app.
+				          </p>
+				        </section>
 
-				<section>
-					<h3>How do templates solve our problems?</h3>
-					<p>
-						When writing templates, we only need to write in the HTML parts that
-						<strong>we know for definite</strong>.
-					</p>
-					<p class="fragment">
-						For parts we don't know, the HTML is generated with some logics using
-						Python-like code with data from a user's <strong>request</strong> when they
-						visit our website.
-					</p>
-					<p class="fragment">Let's see how we can do this in <strong>Flask</strong>!</p>
-				</section>
+				        <section>
+				          <h3><i class="fa fa-bolt"></i>
+				            How do templates solve our problems for dynamic pages?</h3>
+				          <p>
+				            When writing templates, we only need to write in the HTML parts that
+				            <strong>we know for definite</strong>.
+				          </p>
+				          <p class="fragment">
+				            For parts we don't know, the HTML is generated with some logics using
+				            Python-like code with data from a user's <strong>request</strong> when they
+				            visit our website.
+				          </p>
+				          <p class="fragment">Let's see how we can do this in <strong>Flask</strong>!</p>
+				        </section>
 
 				<section>
 					<h3>
@@ -294,73 +281,682 @@
 				</section>
 
 				<section>
-					<h3>More about requests...</h3>
-					<p>
-						Hopefully by now, you'd have noticed that the word <strong>request</strong>
-						has been mentioned repeatedly.
-					</p>
-					<p class="fragment">
-						There's just <strong>one more</strong> little detail that we need to
-						understand about <strong>requests</strong> before we can move forward... the
-						<strong>request type</strong>!
-					</p>
-				</section>
+          <p>
+            In <strong>templates/index.html</strong>, add the following HTML above
+            "Hello world!" so the <code>body</code> should look as follows:
+          </p>
+          <div data-markdown>
+            ```html
+            &lt;body&gt;
+              &lt;nav&gt;
+                &lt;ul&gt;
+                  &lt;li>Home&lt;/li&gt;
+                  &lt;li>About&lt;/li&gt;
+                  &lt;li>Contact&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/nav&gt;
+
+              &lt;h1>Hello world!&lt;/h1&gt;
+            &lt;/body&gt;
+            ```
+          </div>
+        </section>
 
 				<section>
-					<h3>More about requests...</h3>
-					<p>Earlier, we said:</p>
-					<p class="fragment">
-						"Typing in the URL of the page sends <strong>a request</strong> to the server
-						running the website."
-					</p>
-					<p class="fragment">
-						In fact, to be more precise, we are actually sending a <strong>GET request</strong>
-						to the server running the website.
-					</p>
-				</section>
+				          <p>
+				            The bits of HTML and CSS we just added in give the page a <strong>navigation bar</strong>.
+				          </p>
+				          <p class="fragment">
+				            This is so we have some visual feedback that our page still works
+				            when we <strong>break up</strong> our HTML later (more in a moment!)
+				          </p>
+				        </section>
 
-				<section>
-					<h3>The main problem with GET requests</h3>
-					<p>
-						If we want the user to send some extra data when they visit a page on our website,
-						the data are visible at the end of the URL.
-						This is all well and good <strong>if the data is not sensitive</strong>!
-					</p>
-					<p class="fragment">
-						To solve this problem, browsers allows data to be sent using a different kind of request
-						known as a <strong>POST request</strong>, which is only accessible on our server.
-					</p>
-				</section>
+				        <section>
+				          <h3><i class="fa fa-copy"></i> A multi-page app</h3>
+				          <p>
+				            So far, our app only has a single page. What if we want to add an <strong>About</strong>
+				            page as mentioned on our (fictional) navigation bar?
+				          </p>
+				          <p class="fragment">
+				            In the beginners course, it's likely that you'd make a <strong>new HTML file</strong>,
+				            copy & paste what you had in <strong>index.html</strong> and adapt.
+				          </p>
+				          <p class="fragment">
+				            But as mentioned earlier, this is <strong>tedious</strong> & <strong>error prone</strong>.
+				          </p>
+				        </section>
 
-				<section>
-					<h3>
-						<i class="fa fa-cogs" aria-hidden="true"></i>
-						Hands on: handling POST requests in our Flask program
-					</h3>
-				</section>
+				        <section>
+				          <p>
+				            For example, you might forget to update a link on the nav bar <strong>across all pages</strong>
+				            when you update the name of a file.
+				          </p>
+				          <p class="fragment">
+				            We can avoid this problem if we <strong>break up</strong> our HTML templates!
+				          </p>
+				          <p class="fragment">
+				            Common parts across our web app like <strong>nav bars</strong> at the top and <strong>footer</strong>
+				            at the bottom of our HTML provide good breaking points.
+				          </p>
+				        </section>
 
-				<section>
-					<h2>The end!</h2>
-				</section>
+				        <section>
+				          <h3>
+				            <i class="fa fa-cogs" aria-hidden="true"></i>
+				            Hands on: Breaking up our HTML templates
+				          </h3>
+				        </section>
 
-			</div>
-		</div>
+				        <section>
+				          <p>
+				            In the <strong>templates</strong> folder, create a new HTML file called
+				            <strong>header.html</strong>. Then, cut out the following from <strong>index.html</strong>
+				            and put it in <strong>header.html</strong>:
+				          </p>
+				          <div data-markdown>
+				            ```html
+				            &lt;!DOCTYPE html&gt;
+				            &lt;html lang="en"&gt;
 
-		<script src="reveal.js/lib/js/head.min.js"></script>
-		<script src="reveal.js/js/reveal.js"></script>
+				            &lt;head&gt;
+				              &lt;meta charset="UTF-8"&gt;
+				              &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+				              &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+				              &lt;title>First Flask app&lt;/title&gt;
+				              &lt;link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}"&gt;
+				            &lt;/head&gt;
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'reveal.js/plugin/markdown/marked.js' },
-					{ src: 'reveal.js/plugin/markdown/markdown.js' },
-					{ src: 'reveal.js/plugin/notes/notes.js', async: true },
-					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
-</html>
+				            &lt;body&gt;
+				              &lt;nav&gt;
+				                &lt;ul&gt;
+				                  &lt;li>Home&lt;/li&gt;
+				                  &lt;li>About&lt;/li&gt;
+				                  &lt;li>Contact&lt;/li&gt;
+				                &lt;/ul&gt;
+				              &lt;/nav&gt;
+				            ```
+				          </div>
+				        </section>
+
+				        <section>
+				          <p>
+				            Since we just cut out the header HTML from <strong>templates/index.html</strong>,
+				            we need to <strong>include </strong>it back right where we removed it so our page
+				            will still display correctly:
+				          </p>
+				          <div data-markdown>
+				            ```django
+				            {% include "header.html" %}
+				            ```
+				          </div>
+				          <p>
+				            Save that and browse to <code>localhost:5000</code>. If you've done this right,
+				            you should see <strong>exactly the same page</strong> as before!
+				          </p>
+				        </section>
+
+				        <section>
+				          <h3>A quick note...</h3>
+				          <p>
+				            We don't have a footer in this simple example.
+				          </p>
+				          <p class="fragment">But if we do, we'd repeat the same process for the footer and
+				            include it at the bottom of <strong>index.html</strong>.
+				          </p>
+				        </section>
+
+				        <section>
+				          <h3>Building our first dynamic page</h3>
+				          <p>
+				            Up until now, we've been building entirely static pages and serving them
+				            through Flask.
+				          </p>
+				          <p class="fragment">
+				            But where Flask becomes <strong>really useful</strong> is when we want to
+				            write dynamic pages based on <strong>data</strong> from a <strong>user's request</strong>.
+				          </p>
+				          <p class="fragment">
+				            The most visible piece of data we can build our dynamic pages on
+				            is to base on the <strong>URL</strong> the user visits.
+				          </p>
+				        </section>
+
+				        <section>
+				          <h3>
+				            <i class="fa fa-cogs" aria-hidden="true"></i>
+				            Hands on: Our first dynamic page
+				          </h3>
+				          <p>In <strong>app.py</strong>, add in the following before the
+				            <code>app.run(debug=True)</code> line:
+				          </p>
+				          <div data-markdown>
+				            ```python
+				            @app.route("/&lt;name&gt;")
+				            def say_hello_to(name):
+				              return render_template("hello.html", user=name)
+				            ```
+				          </div>
+				        </section>
+
+				        <section>
+				          Then, create a new HTML file called <strong>hello.html</strong> in the
+				          <strong>templates</strong> folder and write
+				          in the following:
+				          <div data-markdown>
+				            ```django
+				            {% include "header.html" %}
+
+				            &lt;h1&gt;Hello {{ user }}!&lt;/h1&gt;
+				            &lt;/body&gt;
+
+				            &lt;/html&gt;
+				            ```
+				          </div>
+				          <p>
+				            Save that and browse to <code>localhost:5000/darren</code> in your browser. If you've
+				            done this right, you should see "Hello darren!" beneath the nav bar we made earlier.
+				          </p>
+				        </section>
+
+				        <section id="dynamic-page-whats-happening">
+				          <h3>🤔 Our first dymanic page: what's happening?</h3>
+				          <p>
+				            The first thing we've done differently from before is the <strong>URL pattern</strong>
+				            used in <code>@app.route(...)</code>.
+				          </p>
+				          <p class="fragment">
+				            The <code>&lt;name&gt;</code> part of the pattern is what's known as a
+				            <a href="http://flask.pocoo.org/docs/0.12/quickstart/#variable-rules" target="_blank">
+				              variable URL part
+				            </a>.
+				          </p>
+				          <p class="fragment">
+				            This means that whatever value the user types in this part of the URL will be captured
+				            and stored in the <strong>name</strong> variable.
+				          </p>
+				          <small class="fragment">
+				            <hr>
+				            Coincidentally, this is the solution to writing a catch-all <code>@app.route</code> for
+				            last week's bonus exercise 1.
+				          </small>
+				        </section>
+
+				        <section>
+				          <p>
+				            The <code>user=name</code> part we tagged on the end of the <code>render_template</code>
+				            function call passes the value (data) we got from <strong>name</strong> in the URL
+				            to a variable called <strong>user</strong>.
+				          </p>
+				          <p class="fragment">
+				            Doing so makes the data accessible via the <strong>user</strong> variable in our HTML
+				            templates.
+				          </p>
+				          <p class="fragment">
+				            This is needed since by default, we cannot access data from the Python code within our
+				            templates.
+				          </p>
+				        </section>
+
+				        <section>
+				          <p>
+				            The <strong>final big change</strong> we made is in our "new" HTML template.
+				          </p>
+				          <p class="fragment">
+				            In <strong>templates/hello.html</strong>, instead of writing
+				            <code>Hello world!</code> between the <strong>h1</strong> tags, we modified it
+				            to <code>Hello {{ user }}!</code>.
+				          </p>
+				          <p class="fragment">
+				            Doing so allows us to output the value in the <strong>user</strong> variable we
+				            obtained earlier from our Python Flask code.
+				          </p>
+				        </section>
+
+				        <section>
+				          <h3>Delving further into templates</h3>
+				          <p>
+				            Flask uses a template engine (Jinja2) to build up the <strong>response HTML</strong>.
+				          </p>
+				          <p class="fragment">
+				            Jinja2 extends the power of normal HTML by allowing us to include logic writing
+				            <strong>Python-like</strong> code.
+				          </p>
+				          <p class="fragment">
+				            This is super handy for cases where you have some data that will be laid out using
+				            <strong>the same</strong> HTML markup (e.g. items in a list).
+				          </p>
+				        </section>
+
+				        <section id="jinja2-syntax">
+				          <h3><i class="fa fa-code"></i>
+				            Templates syntax: the basics
+				          </h3>
+				          <p>
+				            To include any Python statements (<strong>if</strong>, <strong>for loops</strong> etc),
+				            enclose it with a pair of <code>{%  %}</code> as follows:
+				          </p>
+				          <div data-markdown>
+				            ```django
+				            {% if age > 18 %}
+				              &lt;p&gt;Maybe you can drink!&lt;/p&gt;
+				            {% else %}
+				              &lt;p&gt;Naughty! You're too young to drink!&lt;/p&gt;
+				            {% endif %}
+				            ```
+				          </div>
+				          <p class="fragment">
+				            Note that we have to put <code>endif</code> to mark the end of an if-statement,
+				            since indentation is <strong>not</strong> taken into account.
+				          </p>
+				        </section>
+
+				        <section>
+				          <h3><i class="fa fa-code"></i>
+				            Templates syntax: the basics
+				          </h3>
+				          <p>
+				            To <strong>output</strong> the value (most likely be a string or some number) of a variable,
+				            enclose it with a pair of <code>{{ }}</code> as shown below:
+				          </p>
+				          <div data-markdown>
+				            ```django
+				            &lt;h2&gt;{{ name }}&lt;/h2&gt;
+
+				            &lt;!-- If name has the value "Darren", the above
+				            will be converted to the following by Jinja2: --&gt;
+				            &lt;h2&gt;Darren&lt;/h2&gt;
+				            ```
+				          </div>
+				        </section>
+
+				        <section>
+				          <p>
+				            Outputting value is not limited to variables only. You can also output
+				            the result of function calls or data access expression from a list like so:
+				          </p>
+				          <div data-markdown>
+				            ```django
+				            &lt;!-- "DARREN" will end up between the &lt;h2&gt; when
+				            converted by Jinja2 --&gt;
+				            &lt;h2&gt;{{ name.upper() }}&lt;/h2&gt;
+
+				            &lt;!-- Assume shopping_list = ["apple", "pear"],
+				            then "apple" will end up between the &lt;p&gt;
+				            when converted by Jinja2 --&gt;
+				            &lt;p&gt;{{ shopping_list[0] }}&lt;/p&gt;
+				            ```
+				          </div>
+				        </section>
+
+				        <section>
+				          <h3>Templates: functions from Flask</h3>
+				          <p>
+				            Certain functions are also made available by Flask in templates.
+				          </p>
+				          <p class="fragment">
+				            The <strong>most useful</strong> one you should know about is <code>url_for</code>!
+				          </p>
+				          <p class="fragment">
+				            This is the function we used to include our CSS files earlier!
+				          </p>
+				        </section>
+
+				        <section id="url_for">
+				          <p>
+				            The <code>url_for()</code> function returns a string containing the full URL
+				            to assets (CSS, JavaScript, images etc) in the <strong>static</strong> folder when called
+				            with <code>url_for("static", ...)</code>
+				          </p>
+				          <p>Hence, it's commonly used to pull in assets as follows:</p>
+				          <div data-markdown>
+				            ```django
+				            &lt;!-- Examples on how to pull in CSS, JS and
+				            images with url_for --&gt;
+				            &lt;link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}"&gt;
+				            &lt;script src="{{ url_for('static', filename='app.js')}}"&gt;&lt;/script&gt;
+				            &lt;img src="{{ url_for('static', filename='img/pauline.jpg') }}" alt="Pauline"&gt;
+				            ```
+				          </div>
+				          <small>
+				            <hr>
+				            If you want a more comprehensive template reference, visit the official docs
+				            <a href="http://jinja.pocoo.org/docs/2.10/templates/">here</a>!
+				          </small>
+				        </section>
+
+				        <section>
+				          <h3>More about requests...</h3>
+				          <p>
+				            Hopefully by now, you'd have noticed that the word <strong>request</strong>
+				            has been mentioned repeatedly.
+				          </p>
+				          <p class="fragment">
+				            There's just <strong>one more</strong> little detail that we need to
+				            understand about <strong>requests</strong> before we can move forward... the
+				            <strong>request type</strong>!
+				          </p>
+				        </section>
+
+				        <section>
+				          <h3>More about requests...</h3>
+				          <p>Earlier, we said:</p>
+				          <p class="fragment">
+				            "Typing in the URL of the page sends <strong>a request</strong> to the server
+				            running the website."
+				          </p>
+				          <p class="fragment">
+				            In fact, to be more precise, we are actually sending a <strong>GET request</strong>
+				            to the server running the website.
+				          </p>
+				        </section>
+
+				        <section>
+				          <h3>The main problem with GET requests</h3>
+				          <p>
+				            If we want the user to send some extra data when they visit a page on our website,
+				            the data are visible at the end of the URL.
+				            This is all well and good <strong>if the data is not sensitive</strong>!
+				          </p>
+				          <p class="fragment">
+				            To solve this problem, browsers allows data to be sent using a different kind of request
+				            known as a <strong>POST request</strong>, which is only accessible on our server.
+				          </p>
+				        </section>
+
+				        <section>
+				          <h3><i class="fa fa-envelope"></i>
+				            POST requests
+				          </h3>
+				          <p>
+				            A good way to remember when to use a POST request is that in the old days
+				            where emails don't exist, you'd send important information through a <strong>post</strong>...
+				          </p>
+				          <p class="fragment">
+				            ... as opposed to <strong>getting</strong> it (by asking loudly for it in public)!
+				          </p>
+				          <img src="assets/post.jpg" alt="post box" class="fragment" style="width: 20%;">
+				        </section>
+
+				        <section>
+				          <h3>
+				            <i class="fa fa-cogs" aria-hidden="true"></i>
+				            Hands on: handling POST requests in our Flask program
+				          </h3>
+				          <p>
+				            In <strong>templates/index.html</strong>, add in the following above the
+				            <code>&lt;/body&gt;</code> tag:
+				          </p>
+				          <div data-markdown>
+				            ```html
+				            &lt;form action="/feedback" method="post"&gt;
+				              &lt;label for="name">Name: &lt;/label&gt;
+				              &lt;input type="text" name="name" id="name"&gt;
+
+				              &lt;label for="email">Email: &lt;/label&gt;
+				              &lt;input type="email" name="email" id="email"&gt;
+
+				              &lt;input type="submit" value="Send!"&gt;
+				            &lt;/form&gt;
+				            ```
+				          </div>
+				        </section>
+
+				        <section id="post-request-code">
+				          <p>In <strong>app.py</strong>, update the <strong>import statement</strong> on the first line
+				            so it reads:
+				          </p>
+				          <div data-markdown>
+				            ```python
+				            from flask import Flask, render_template, request
+				            ```
+				          </div>
+				          <div class="fragment">
+				            <p>
+				              Then, before the <code>app.run(debug=True)</code> line, add in:
+				            </p>
+				            <div data-markdown>
+				              ```python
+				              @app.route("/feedback", methods=["POST"])
+				              def get_feedback():
+				                # request.values is a dictionary holding any
+				                # POST request data that's not already part of the URL
+				                data = request.values
+
+				                return render_template("feedback.html", form_data=data)
+				              ```
+				            </div>
+				          </div>
+				          <small class="fragment">
+				            <hr>
+				            In fact, Flask puts GET request data in <code>request.values</code> too so
+				            you can find everything in one place. Nice!
+				          </small>
+				        </section>
+
+				        <section>
+				          Now create a new HTML file called <strong>feedback.html</strong> in the
+				          <strong>templates</strong> folder and write in:
+				          <div data-markdown>
+				            ```django
+				            {% include "header.html" %}
+
+				            &lt;p&gt;
+				              {{ form_data["name"] }} sent the email address:
+				              {{ form_data["email"] }}
+				            &lt;/p&gt;
+
+				            &lt;/body&gt;
+				            &lt;/html&gt;
+				            ```
+				          </div>
+				        </section>
+
+				        <section id="feedback-template-demo">
+				          <p>
+				            Save the new template, then browse to <code>localhost:5000</code>. You should
+				            see a form like this if you've done everything correctly:
+				          </p>
+				          <img src="assets/form.png" alt="HTML post request form">
+				          <p class="fragment">
+				            Type in your name and email, click the "Send!" button and you should see something
+				            like <strong>tania sent the email address: tania@gmail.com</strong> in your browser.
+				          </p>
+				        </section>
+
+				        <section id="post-explain">
+				          <h3>🤔 Handling POST request in Flask... what's happening?</h3>
+				          <p>
+				            Firstly, we introduced a new <strong>form</strong> element in our main
+				            <strong>index.html</strong> template. Here are some key things to note:
+				          </p>
+				          <p class="fragment">
+				            The <strong>action</strong> attribute in the <code>form</code> tag corresponds to
+				            the URL pattern we need to write a function for in Python to handle the POST request.
+				          </p>
+				          <p class="fragment">
+				            The <strong>name</strong> attribute in the <code>input</code> tags become the
+				            keys we use to access the data from <code>request.values</code> dict on the Python
+				            side.
+				          </p>
+				        </section>
+
+				        <section>
+				          <p>
+				            On the Python (server) side, we define yet <strong>another function</strong>
+				            so our Flask app knows how to handle the POST request sent from the form.
+				          </p>
+				          <p class="fragment">
+				            Note the addition of <code>methods=["POST"]</code> after the URL pattern in
+				            <code>@app.route</code>.
+				          </p>
+				          <p class="fragment">
+				            This is needed as by default, <code>@app.route</code> binds a Python function to
+				            <strong>only</strong> take on GET requests.
+				          </p>
+				        </section>
+
+				        <section>
+				          <p>
+				            To retrieve the data which we can then pass to our HTML templates, we do so by accessing
+				            the <code>request.values</code> dictionary.
+				          </p>
+				          <p class="fragment">
+				            This is a dictionary provided by Flask which captures the data sent through the HTML form.
+				          </p>
+				          <p class="fragment">
+				            For example, to get the name sent through the form, write <code>request.values["name"]</code>
+				            in the Python code.
+				          </p>
+				          <small class="fragment">
+				            <hr>
+				            For improved readability, I recommend re-assigning <code>request.values</code>
+				            to a more meaningful variable name like <code>data</code> or <code>form_data</code>, then
+				            do <code>data["name"]</code> to get the name data sent.
+				          </small>
+				        </section>
+
+				        <section>
+				          <p>
+				            The <strong>final part</strong> of the <strong><i class="fa fa-puzzle-piece"></i></strong>
+				            is the new feedback HTML template we just made.
+				          </p>
+				          <p class="fragment">
+				            Since we passed the form data dictionary from our Python code to our template under the
+				            <strong>form_data</strong> variable, this is what we'll use to access the data.
+				          </p>
+				          <p class="fragment">
+				            The pair of double braces surrounding the data access expression
+				            (e.g. <code>{{ form_data["name"] }}</code>) outputs its value just like what we
+				            did earlier.
+				          </p>
+				        </section>
+
+				        <section>
+				          <h3><i class="fa fa-warning"></i>
+				            A warning for visiting POST request URL directly...</h3>
+				          <p>
+				            The explicit addition of <code>methods=["POST"]</code> in <code>@app.route</code>
+				            means the function can now <strong>only</strong> handle POST requests.
+				          </p>
+				          <p class="fragment">
+				            This means if you try to visit it directly (i.e. you're sending the URL a
+				            <strong>GET request</strong>), you <em>may</em> get a
+				            <strong>Method Not Allowed</strong> error.
+				          </p>
+				          <small class="fragment">
+				            <hr>
+				            In our case, this hasn't happened since we've been saved by the catch-all
+				            <code>@app.route</code> function binding we wrote earlier.
+				          </small>
+				        </section>
+
+				        <section>
+				          <h2>The end!</h2>
+				        </section>
+
+				        <section id="bonus-exercises">
+				          <h3>Bonus exercises</h3>
+				          <ol>
+				            <li>
+				              Write three more functions, binding them with the appropriate routing pattern,
+				              such that all the pages mentioned on the nav bar can be visited.
+				            </li>
+				            <li>
+				              Link up the extra pages you just made correctly such that the nav bar is no longer
+				              fictional.
+				              (Hint: You may want to look at how to do so using <code>url_for</code>
+				              <a href="http://flask.pocoo.org/docs/0.12/quickstart/#url-building" target="_blank">here</a>,
+				              and output the URL string it returns in the HTML template)
+				            </li>
+				          </ol>
+				          <hr>
+				          <a href="#/bonus-exercises-2">
+				            <small>More exercise</small>
+				          </a>
+				          <a href="#/extra"><small>Go back</small></a>
+				        </section>
+
+				        <section id="bonus-exercises-2">
+				          <p>
+				            3. Download the text file with the list of #ShefCodeFirst Python course members
+				            <a href="https://raw.githubusercontent.com/darrenvong/shefcodefirst-python-code/master/session2/python_course_members.txt">
+				              here.
+				            </a>
+				            Load the course members into a list using part of the code shown in the
+				            <a href="https://github.com/darrenvong/shefcodefirst-python-code/blob/master/session2/fb_challenge.py"
+				               target="_blank">
+				              week 2's weekly challenge.
+				            </a>
+				          </p>
+				          <p>
+				            4. Then, write a function, bind it to an appropriate routing pattern such that when you
+				            visit <code>localhost:5000/shefcodefirst-members</code>, all members are printed out
+				            in a list on the web page.
+				          </p>
+				          <hr>
+				          <a href="#/bonus-exercises-3"><small>More exercises</small></a>
+				          <a href="#/extra"><small>Go back</small></a>
+				        </section>
+
+				        <section id="bonus-exercises-3">
+				          <p>
+				            5. Add three more functions & bind them to appropriate routing pattern such that when you
+				            visit <code>localhost:5000/shefcodefirst-members/students</code>, only the students are
+				            printed out on the page.
+				          </p>
+				          <hr>
+				          <a href="#/bonus-exercises-4"><small>More exercises</small></a>
+				          <a href="#/extra"><small>Go back</small></a>
+				        </section>
+
+				        <section id="bonus-exercises-4">
+				          <p>
+				             6. **Download the sample weather data
+				            <a href="https://raw.githubusercontent.com/darrenvong/shefcodefirst-python-code/master/session4/weather_data.json">
+				              here.
+				            </a>
+				            Then, load in the data from the text file into a dictionary.
+				            (Hint: You may want to Google how to do that using the <code>json.load</code> function in Python.)
+				          </p>
+				          <p>
+				            7. Write a function, bind it to the routing pattern "weather/&lt;location&gt;", such that when
+				            you visit <code>localhost:5000/weather/London</code>, it outputs the temperature and a short
+				            description of London's weather.
+				          </p>
+				          <hr>
+				          <a href="#/bonus-exercises-5"><small>More exercises</small></a>
+				          <a href="#/extra"><small>Go back</small></a>
+				        </section>
+
+				        <section id="bonus-exercises-5">
+				          <p>
+				            8. To see if you've written the function correctly, visit
+				            <code>localhost:5000/Prague</code> and see if you can get the temperature and
+				            weather description of Prague printing too!
+				          </p>
+				          <hr>
+				          <a href="#/extra"><small>Go back</small></a>
+				        </section>
+
+				      </div>
+				    </div>
+
+				    <script src="reveal.js/lib/js/head.min.js"></script>
+				    <script src="reveal.js/js/reveal.js"></script>
+
+				    <script>
+				      // More info about config & dependencies:
+				      // - https://github.com/hakimel/reveal.js#configuration
+				      // - https://github.com/hakimel/reveal.js#dependencies
+				      Reveal.initialize({
+				        dependencies: [
+				          { src: 'reveal.js/plugin/markdown/marked.js' },
+				          { src: 'reveal.js/plugin/markdown/markdown.js' },
+				          { src: 'reveal.js/plugin/notes/notes.js', async: true },
+				          { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				        ]
+				      });
+				    </script>
+				  </body>
+				</html>
