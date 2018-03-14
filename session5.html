@@ -67,277 +67,377 @@
 				</section>
 
 				<section>
-					<h2>What am I going to learn today?</h2>
-					<ul>
-						<li>How to use various APIs to get data</li>
-						<li>How can I handle and format the API's data</li>
-						<li>How to collect data from a user and use that in an API call
-							<hr>
-							<p class='fragment'> Essentially: how to link <strong>
-								all the the things you've learned so far together
-							</strong></p></li>
-						<p class='fragment text-center'>
-						<accent-text>
-						 <i class="fa fa-flask" aria-hidden="true"></i>
-						 <i class="fa fa-plus" aria-hidden="true"></i>
-						 <i class="fa fa-cogs" aria-hidden="true"></i>
-						 <i class="fa fa-plus" aria-hidden="true"></i>
-						 <i class="fa fa-terminal" aria-hidden="true"></i>
-					 </accent-text> </p>
-					</ul>
-				</section>
+          <h3><i class="fa fa-reply" aria-hidden="true"></i>
+            Recap: Templates <i class="fa fa-code"></i>
+          </h3>
+          <ul>
+            <li>
+              Allows us to break up our HTML pages into <strong>smaller</strong>,
+              <strong>re-usable</strong> parts.
+            </li>
+            <li>
+              For static pages, templates allow us to update common parts on a page
+              <strong>once</strong> rather than everywhere!
+            </li>
+            <li>
+              Extends the capabilities of normal HTML by allowing us to write
+              Python-like code to output <strong>dynamic data</strong> from the user's
+              <strong>request</strong>.
+            </li>
+          </ul>
+        </section>
 
-				<section>
-					<h2> <i class="fa fa-cogs" aria-hidden="true"></i>
-					What is an API?</h2>
-					<strong>Aplication Programming Interfaces </strong>or API's act as an
-					interface between your Python code and other services
-					allowing you to collect data <strong>programatically</strong>
-				</section>
+        <section id="data-passing-recap">
+          <h3><i class="fa fa-reply" aria-hidden="true"></i>
+            Recap: Passing data from Flask to templates
+          </h3>
+          <ul>
+            <li>
+              By default, HTML templates can't access the data (either from a user's request,
+              or from an API/file on the server) from the Python code.
+            </li>
+            <li>
+              If we want to output any data to the user in our HTML templates, we need to
+              <strong>explicitly pass</strong> them to the templates.
+            </li>
+            <li>
+              This can be done by assigning the data to new variables <strong>after</strong>
+              the template name argument in the <code>render_template</code> function.
+            </li>
+          </ul>
+        </section>
 
-				<section>
-					<h3><i class="fa fa-video-camera" aria-hidden="true"></i>
-						Let's check this video</h3>
-					<a href="https://www.youtube.com/watch?v=s7wmiS2mSXY">
-					Check me out!</a>
-				</section>
+        <section id="data-passing-recap-code-snippet">
+          <p>
+            There's no limit on the number of variables we can pass along -
+            we can add as many as we need!
+          </p>
+          <p class="fragment">Suppose the template we want to show the user is called
+            <strong>index.html</strong>, and we have a shopping list we want to output,
+            we can make the shopping list available to the template like so:
+          </p>
+          <div class="fragment" data-markdown>
+            ```python
+            @app.route("/")
+            def index():
+              basket = ["apple", "orange"] # shopping list
+              # In "index.html", we can then access the list via the "shopping_list" variable
+              return render_template("index.html", shopping_list=basket)
+            ```
+          </div>
+        </section>
 
-				<section>
-					<h3>What do you mean by programatically?</h3>
-					It means that your <strong>Python code</strong> will communicate
-					with a service (Twitter for example) using their API, <strong>collect the
-					data </strong> and will posteriorly process it somehow.
-				</section>
+        <section>
+          <h3><i class="fa fa-reply" aria-hidden="true"></i>
+            Recap: POST requests
+          </h3>
+          <ul>
+            <li>
+              By default, when we visit a URL in our browser, we are sending a <strong>GET request</strong>
+              to the server.
+            </li>
+            <li>GET request exposes any user data at the end of the URL, which is
+              <strong>not very good</strong> when we sometimes need to send <strong>sensitive data</strong>.
+            </li>
+            <li>To overcome this problem, data can be sent from our webpages to the server using
+              <strong>POST requests</strong> via a form.
+            </li>
+          </ul>
+        </section>
 
-				<section>
-					<h3><i class="fa fa-fire" aria-hidden="true"></i>
-						Full disclose!</h3>
-					The regular curriculum focuses on using Mailgun and the weather app API...
-					but we thought we would make it more interesting by
-					focusing on: <strong>Twitter, Spotify, and NASA's</strong>
-					APIs.
-				</section>
+        <section>
+          <ul>
+            <li>
+              In order to make our function capable of handling POST requests, we need to add
+              <code>methods=["POST"]</code> after the URL pattern argument in <code>@app.route</code>.
+            </li>
+            <li>
+              If we try to visit the URL directly, we will get a
+              <strong>Method Not Allowed</strong> error if we don't have a catch-all
+              <code>@app.route</code> binding to another function in our code.
+            </li>
+          </ul>
+        </section>
 
-				<section>
-					<h2>So how can I talk to APIs?</h2>
-					<ul>
-						<li>Using <a href="http://docs.python-requests.org/en/master/">
-						requests</a> (HTTP for humans) and the API in question</li>
-						<li>Using a Python specific library (e.g.<a href="http://www.tweepy.org">
-						Tweepy</a>) to access the API</li>
-					</ul>
-				</section>
+        <section>
+          <h2>What am I going to learn today?</h2>
+          <ul>
+            <li>How to use various APIs to get data</li>
+            <li>How can I handle and format the API's data</li>
+            <li>How to collect data from a user and use that in an API call
+              <hr>
+              <p class='fragment'> Essentially: how to link <strong>
+                all the the things you've learned so far together
+              </strong></p></li>
+            <p class='fragment text-center'>
+            <accent-text>
+             <i class="fa fa-flask" aria-hidden="true"></i>
+             <i class="fa fa-plus" aria-hidden="true"></i>
+             <i class="fa fa-cogs" aria-hidden="true"></i>
+             <i class="fa fa-plus" aria-hidden="true"></i>
+             <i class="fa fa-terminal" aria-hidden="true"></i>
+           </accent-text> </p>
+          </ul>
+        </section>
 
-				<section>
-					<h2>Hands on time!</h2>
-				</section>
+        <section>
+          <h2> <i class="fa fa-cogs" aria-hidden="true"></i>
+          What is an API?</h2>
+          <strong>Aplication Programming Interfaces </strong>or API's act as an
+          interface between your Python code and other services
+          allowing you to collect data <strong>programatically</strong>
+        </section>
 
-				<section>
-					<h3>Setting your first API in Python</h3>
-					<accent-text>We will use <a href="http://openweathermap.org/api">
-					Open Weather Map</a> </accent-text>
-					<br><br>
-					You will need:
-					<ul>
-						<li>An app id... don't worry you can use mine </li>
-						<li> <code>requests</code> installed... you know the drill:</li>
-						<code>pip install requests</code>
-					</ul>
-				</section>
+        <section>
+          <h3><i class="fa fa-video-camera" aria-hidden="true"></i>
+            Let's check this video</h3>
+          <iframe width="840" height="472" src="https://www.youtube.com/embed/s7wmiS2mSXY"
+            frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+        </section>
 
-				<section data-markdown>
-					```python
-					import requests
+        <section>
+          <h3>What do you mean by programatically?</h3>
+          It means that your <strong>Python code</strong> will communicate
+          with a service (Twitter for example) using their API, <strong>collect the
+          data </strong> and will posteriorly process it somehow.
+        </section>
 
-					id = "84600bca7507293656495e8972aec659"
-					payload = {'q':'Mcrfield, UK', 'units':'metric', 'appid':id}
+        <section>
+          <h3><i class="fa fa-fire" aria-hidden="true"></i>
+            Full disclose!</h3>
+          The regular curriculum focuses on using Mailgun and the weather app API...
+          but we thought we would make it more interesting by
+          focusing on: <strong>Twitter, Spotify, and NASA's</strong>
+          APIs.
+        </section>
 
-					def query_weather(payload):
-					    endpoint = "http://api.openweathermap.org/data/2.5/weather"
-					    response = requests.get(endpoint, params=payload)
+        <section>
+          <h2>So how can I talk to APIs?</h2>
+          <ul>
+            <li>Using <a href="http://docs.python-requests.org/en/master/">
+            requests</a> (HTTP for humans) and the API in question</li>
+            <li>Using a Python specific library (e.g.<a href="http://www.tweepy.org">
+            Tweepy</a>) to access the API</li>
+          </ul>
+        </section>
 
-					    return response
+        <section>
+          <h2>Hands on time!</h2>
+        </section>
 
-					response = query_weather(payload)
+        <section>
+          <h3>Setting your first API in Python</h3>
+          <accent-text>We will use <a href="http://openweathermap.org/api">
+          Open Weather Map</a> </accent-text>
+          <br><br>
+          You will need:
+          <ul>
+            <li>An app id... don't worry you can use mine </li>
+            <li> <code>requests</code> installed... you know the drill:</li>
+            <code>pip install requests</code>
+          </ul>
+        </section>
 
-					```
-				</section>
+        <section data-markdown>
+          ```python
+          import requests
 
-				<section>
-					You might have noticed something familiar by now... <code>
-					response = requests.get(endpoint, params=payload)</code>
-					<br><br>
-					<p class='fragment'>
-						We are using <strong>HTTP GET</strong> requests to collect data!
-					</p>
-				</section>
+          id = "84600bca7507293656495e8972aec659"
+          payload = {'q':'Sheffield, UK', 'units':'metric', 'appid':id}
 
-				<section>
-					<h3>New terms introduced here</h3>
-					<ul>
-						<li><strong>endpoint</strong>: the location or destination of the data</li>
-						<li><strong>payload</strong>: information sent to the endpoint... think of
-						them to be some sort of search terms</li>
-					</ul>
-					<p>Add to your script: <code>print(response.url)</code> </p>
-					<hr>
-				 	<small>Note the payload 'parameters' are defined by the API</small>
-				</section>
+          def query_weather(payload):
+              endpoint = "http://api.openweathermap.org/data/2.5/weather"
+              response = requests.get(endpoint, params=payload)
 
-				<section>
-					<h3>Response content</h3>
-					We now have a <code>response</code> object from which we can extract all the
-					information we need
-					<hr>
-					<br> On your script add: <code>print(response.status_code)</s></code>
-					<br>
-					<p class='fragment'>If you get <strong>200</strong> it means your request
-						was successful</p>
-				</section>
+              return response
 
-				<section>
-					<h3>Retrieving the content</h3>
-					You can check the content by adding a <code>print(response.text)</code>
-					<br><br><p class='fragment'>
-						<accent-text> I know it is not a very nice format</p></accent-text>
-				</section>
+          response = query_weather(payload)
 
-				<section>
-					<h3>JSON</h3>
-					We can use <a href="http://www.json.org">JSON</a> (JavaScript Object Notation),
-					which
-					has a <strong>human readable</strong> notation and can be easily
-					interpreted by computers.
-					<br> JSON data consists of pairs of <strong>keys</strong> and <strong>values</strong>
-				</section>
+          ```
+        </section>
 
-				<section data-markdown>
-					Add the following to your script:
-					```python
-					def jsonify(response):
-					    json_response = response.json()
-					    return json_response
+        <section>
+          You might have noticed something familiar by now... <code>
+          response = requests.get(endpoint, params=payload)</code>
+          <br><br>
+          <p class='fragment'>
+            We are using <strong>HTTP GET</strong> requests to collect data!
+          </p>
+        </section>
+
+        <section>
+          <h3>New terms introduced here</h3>
+          <ul>
+            <li><strong>endpoint</strong>: the location or destination of the data</li>
+            <li><strong>payload</strong>: information sent to the endpoint... think of
+            them to be some sort of search terms</li>
+          </ul>
+          <p>Add to your script: <code>print(response.url)</code> </p>
+          <hr>
+           <small>Note the payload 'parameters' are defined by the API</small>
+        </section>
+
+        <section>
+          <h3>Response content</h3>
+          We now have a <code>response</code> object from which we can extract all the
+          information we need
+          <hr>
+          <br> On your script add: <code>print(response.status_code)</s></code>
+          <br>
+          <p class='fragment'>If you get <strong>200</strong> it means your request
+            was successful</p>
+        </section>
+
+        <section>
+          <h3>Retrieving the content</h3>
+          You can check the content by adding a <code>print(response.text)</code>
+          <br><br><p class='fragment'>
+            <accent-text> I know it is not a very nice format</p></accent-text>
+        </section>
+
+        <section>
+          <h3>JSON</h3>
+          We can use <a href="http://www.json.org">JSON</a> (JavaScript Object Notation),
+          which
+          has a <strong>human readable</strong> notation and can be easily
+          interpreted by computers.
+          <br> JSON data consists of pairs of <strong>keys</strong> and <strong>values</strong>
+        </section>
+
+        <section data-markdown>
+          Add the following to your script:
+          ```python
+          def jsonify(response):
+              json_response = response.json()
+              return json_response
 
 
-					json_response = jsonify(response)
-					print("\n")
-					print(json_response)
-					```
-				</section>
+          json_response = jsonify(response)
+          print("\n")
+          print(json_response)
+          ```
+        </section>
 
-				<section>
-					That is much more understandable!
-					<br>
-					So if you wanted to get, for example, the temperature you'd query
-					your data as: <br><br>
-					<code>json_response['main']['temp']</code>
-					<p class='fragment'>How would you query the location,
-					and weather?</p>
-				</section>
+        <section>
+          That is much more understandable!
+          <br>
+          So if you wanted to get, for example, the temperature you'd query
+          your data as: <br><br>
+          <code>json_response['main']['temp']</code>
+          <p class='fragment'>How would you query the location,
+          and weather?</p>
+        </section>
 
-			<section>
-				<h2><i class="fa fa-twitter" aria-hidden="true"></i>
-					Having fun with Twitter</h2>
-			</section>
+      <section>
+        <h2><i class="fa fa-twitter" aria-hidden="true"></i>
+          Having fun with Twitter</h2>
+      </section>
 
-			<section>
-				We will use <strong>Tweepy</strong> for the next exercises
-				so if you have not installed it yet do it now:
-				<pre> <code>pip install tweepy</code> </pre>
-			</section>
+      <section>
+        We will use <strong>Tweepy</strong> for the next exercises
+        so if you have not installed it yet do it now:
+        <pre> <code>pip install tweepy</code> </pre>
+      </section>
 
-			<section>
-				<h2><i class="fa fa-key" aria-hidden="true"></i>Authentication</h2>
-				We need to authenticate before accessing the
-				data from Twitter. We will need the<strong>
-				consumer_key, consumer_secret, set_access_token,
-			access_token_secret</strong> you got when you created
-			the app online.
-			</section>
+      <section>
+        <h2><i class="fa fa-key" aria-hidden="true"></i>Authentication</h2>
+        We need to authenticate before accessing the
+        data from Twitter. We will need the<strong>
+        consumer_key, consumer_secret, set_access_token,
+      access_token_secret</strong> you got when you created
+      the app online.
+      </section>
 
-			<section>
-				<h2><i class="fa fa-bookmark" aria-hidden="true">
-				</i> Very important stuff</h2>
-				You have to be very careful with your keys.
-				<strong>Never</strong> share them on GitHub.
-				<br><hr>
-				For apps deployment you'd normally have a separate
-				<strong>encrypted config</strong> file (config.ini, config.yml)
-				and usually additional authentication measures.
-			</section>
+      <section>
+        <h2><i class="fa fa-bookmark" aria-hidden="true">
+        </i> Very important stuff</h2>
+        You have to be very careful with your keys.
+        <strong>Never</strong> share them on GitHub.
+        <br><hr>
+        For apps deployment you'd normally have a separate
+        <strong>encrypted config</strong> file (config.ini, config.yml)
+        and usually additional authentication measures.
+      </section>
 
-			<section data-markdown>
-				```python
-				import tweepy
+      <section data-markdown>
+        ```python
+        import tweepy
 
-				consumer_key = 'xxx'
-				consumer_secret = 'xxx'
-				access_token = 'xxx'
-				access_token_secret = 'xxx'
+        consumer_key = 'xxx'
+        consumer_secret = 'xxx'
+        access_token = 'xxx'
+        access_token_secret = 'xxx'
 
-				auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-				auth.set_access_token(access_token, access_token_secret)
-				twitter_api = tweepy.API(auth)
+        auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+        auth.set_access_token(access_token, access_token_secret)
+        twitter_api = tweepy.API(auth)
 
-				print('Logged in as {}'.format(twitter_api.me().name))
-				```
-			</section>
+        print('Logged in as {}'.format(twitter_api.me().name))
+        ```
+      </section>
 
-			<section>
-				<h2>Tweets contain a lot of information</h2>
-				<a href="https://goo.gl/ogbn3D">https://goo.gl/ogbn3D</a>
-			</section>
+      <section>
+        <h2>Tweets contain a lot of information</h2>
+        <a href="https://goo.gl/ogbn3D" target="_blank">https://goo.gl/ogbn3D</a>
+      </section>
 
-			<section>
-				<img src="./assets/tweet.png" alt="tweet">
-			</section>
+      <section>
+        <img src="./assets/tweet.png" alt="tweet" style="width:55%;">
+      </section>
 
-			<section data-markdown>
-				### Let's start by checking our timeline
-				```python
-				def see_timeline(no_tweets):
-					for tweet in tweepy.Cursor(twitter.home_timeline).items(no_tweets):
-					print("\n {} tweeted by {}".format(status.text, status.user.name))
-				```
-			</section>
+      <section data-markdown>
+        ### Let's start by checking our timeline
+        ```python
+        def see_timeline(no_tweets):
+          for tweet in tweepy.Cursor(twitter.home_timeline).items(no_tweets):
+          print("\n {} tweeted by {}".format(status.text, status.user.name))
+        ```
+      </section>
 
-			<section>
-				<h3>Other things to do</h3>
-				- Check someone else's timeline
-				- Collect tweets containing certain <strong>keywords</strong>
-				or <strong>hashtags</strong>
-				- Post a tweet using Python
-			</section>
+      <section>
+        <h3>Other things to do</h3>
+        <ul>
+          <li>Check someone else's timeline</li>
+          <li>
+            Collect tweets containing certain <strong>keywords</strong>
+            or <strong>hashtags</strong>
+          </li>
+          <li>Post a tweet using Python</li>
+        </ul>
+      </section>
 
-			<section>
-				<h3><i class="fa fa-puzzle-piece" aria-hidden="true"></i>
-				So far all the examples are on the 'backend'</h3>
-				All the data has been collected using Python... so how do we combine
-				Flask, html/css, and the data?
-				<p class='fragment'><strong>Let's find out</strong></p>
-			</section>
+      <section>
+        <h3><i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+        So far all the examples are on the 'backend'</h3>
+        All the data has been collected using Python... so how do we combine
+        Flask, html/css, and the data?
+        <p class='fragment'><strong>Let's find out</strong></p>
+      </section>
 
-			<section>
-				<h3>Working on an app that integrates everything</h3>
-			<code><pre>
+      <section>
+        <h3>Working on an app that integrates everything</h3>
+      <code><pre>
 ~/CFG_app
-	    |-- config.py        # or config.yml config.ini
-	    |-- /env             # Virtual Environment
-	    |-- /app             # Our Application Module
-	         |-- /helpers
-	             |-- __init__.py
-	             |-- twitter.py
-	             |-- spotify.py
-	         |-- /templates
-	             |--- index.html
-	             |--- /partials
-	                 |-- artist.html
-	         |-- /static
-	 	</pre></code>
-			</section>
+      |-- config.py        # This *NEEDS* to be added to gitignore!
+      |-- app.py             # Our Flask app
+           |-- /helpers
+               |-- __init__.py
+               |-- twitter.py
+               |-- spotify.py
+           |-- /templates
+               |--- index.html
+               |--- /partials
+                   |-- artist.html
+           |-- /static
+     </pre></code>
+      <a href="https://github.com/trallard/shefcodefirst-python-code/tree/master/session5/CFG_app"
+        target="_blank">
+        Click this to check out the app's source code
+      </a>
+      </section>
 
-			</div>
-		</div>
+      </div>
+    </div>
 
 		<script src="reveal.js/lib/js/head.min.js"></script>
 		<script src="reveal.js/js/reveal.js"></script>
