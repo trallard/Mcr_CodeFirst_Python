@@ -38,7 +38,13 @@ def post_tweet(status):
 
 def see_timeline(no):
     for tweet in tweepy.Cursor(twitter.home_timeline).items(no):
-        print("\n {} tweeted by {}".format(status.text, status.user.name))
+        print("\n {} tweeted by {}".format(tweet.text, tweet.user.name))
+
+# Rettrieves a single tweet from out Twitter timeline 
+#and wraps it in a list-like cursor structure from thw
+#Tweepy library so that we can loop through it using a
+#for loop
+
 
 # the same data can be written to process/store JSON
 for status in tweepy.Cursor(twitter.home_timeline).items(1):
@@ -56,5 +62,10 @@ if __name__ == '__main__':
     # see the name of the account print out
     print('You are now logged in as {}'.format(twitter.me().name))
     collect_tweets('#ShefCodeFirst',  10)
+
+    # Retrieves a single tweet from out Twitter timeline
+    #and wraps it in a list-like cursor structure from thw
+    #Tweepy library so that we can loop through it using a
+    #for loop
 
     post_tweet()
