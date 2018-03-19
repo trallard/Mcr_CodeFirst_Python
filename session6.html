@@ -4,6 +4,13 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+		<!-- Facebook Open Graph tags -->
+	  <meta property="og:url" content="https://trallard.github.io/Mcr_CodeFirst_Python/session6.html">
+	  <meta property="og:title" content="Session 6: Deploying your code">
+	  <meta property="og:description" content="Sharing your app with the world">
+	  <meta property="og:image" content="https://trallard.github.io/Mcr_CodeFirst_Python/assets/session6_slide.png">
+
+
 		<title> CFG session 6</title>
 
 		<link rel="stylesheet" href="reveal.js/css/reveal.css">
@@ -56,12 +63,9 @@
 						 Sharing <strong>your app</strong> with the rest of the world
 					</p>
 					<img src="./assets/heroku.png" alt="heroku">
-					<p class='author'> Darren Vong
+					<p class='author'> Lorenzo Grespan
 					<br>
-				 <a href="http://twitter.com/mrdarrenv" target="_blank">
-					<i class="fa fa-twitter" aria-hidden="true">
-					</i> @mrdarrenv
-				 </a>
+
  		 			</p>
 				</section>
 
@@ -77,198 +81,222 @@
 				</section>
 
 				<section>
-					<h3>
-						<i class="fa fa-reply" aria-hidden="true"></i>
-						Recap: What is an API?
-					</h3>
-					<ul>
-						<li>A way which allows our Python code to access external services <strong>programmatically</strong>.</li>
-						<li>Think of it as the "browser" (interface) for our code to interact with a service!</li>
-						<li>
-							This interface allows our Python code to <strong>collect and process data</strong> from these
-							services <strong>more easily</strong>.
-						</li>
-					</ul>
-				</section>
+          <h3>
+            <i class="fa fa-reply" aria-hidden="true"></i>
+            Recap: What is an API?
+          </h3>
+          <ul>
+            <li>A way which allows our Python code to access external services <strong>programmatically</strong>.</li>
+            <li>Think of it as the "user interface" for our code to interact with a service!</li>
+            <li>
+              This interface allows our Python code to <strong>collect and process data</strong> from these
+              services <strong>more easily</strong>.
+            </li>
+          </ul>
+        </section>
 
-				<section>
-					<h3>
-						<i class="fa fa-reply" aria-hidden="true"></i>
-						Recap: communicating with API in Python
-					</h3>
-					<p>We can do that either using:</p>
-					<ul>
-						<li class="fragment"><strong>requests</strong> (HTTP for humans) with our chosen API, or;</li>
-						<li class="fragment">
-							a Python library (like <strong>tweepy</strong>) which defines various <strong>functions
-							that we can use</strong> in our code to access the API.
-						</li>
-						<li class="fragment">Here's the familiar diagram again...</li>
-					</ul>
-				</section>
+        <section>
+          <h3>
+            <i class="fa fa-reply" aria-hidden="true"></i>
+            Recap: communicating with API in Python
+          </h3>
+          <p>We can do that either using:</p>
+          <ul>
+            <li class="fragment"><strong>requests</strong> (HTTP for humans) with our chosen API, or;</li>
+            <li class="fragment">
+              a Python library (like <strong>tweepy</strong>) which defines various <strong>functions
+              that we can use</strong> in our code to access the API.
+            </li>
+            <li class="fragment">Here's the familiar diagram again...</li>
+          </ul>
+        </section>
 
-				<section>
-					<div style="position:relative;">
-						<img src="assets/req_res_cycle.png" alt="The Request-Response Cycle">
-						<img id="python" src="assets/python_logo.jpg" alt="python code">
-						<strong>
-							<p id="req-url" class="fragment">http://api.openweathermap.org/data/2.5/weather</p>
-						</strong>
-						<div id="res" class="fragment">
-							<strong data-markdown>
-								```json
-								{
-									"clouds": {"all": 92},
-									...
-								}
-								```
-							</strong>
-						</div>
-					</div>
-				</section>
+        <section>
+          <div style="position:relative;">
+            <img src="assets/req_res_cycle.png" alt="The Request-Response Cycle">
+            <img id="python" src="assets/python_logo.jpg" alt="python code">
+            <strong>
+              <p id="req-url" class="fragment">http://api.openweathermap.org/data/2.5/weather</p>
+            </strong>
+            <div id="res" class="fragment">
+              <strong data-markdown>
+                ```json
+                {
+                  "clouds": {"all": 92},
+                  ...
+                }
+                ```
+              </strong>
+            </div>
+          </div>
+        </section>
 
-				<section>
-					<h3>
-						<i class="fa fa-reply" aria-hidden="true"></i>
-						Recap: API keys
-						<i class="fa fa-key" aria-hidden="true"></i>
-					</h3>
-					<ul>
-						<li>
-							Used by most services that provide an API to identify who is accessing it.
-						</li>
-						<li>Authenticates our app and gives us permission to access the API accordingly.</li>
-						<li class="fragment highlight-red">
-							<strong>NEVER</strong> commit your keys on GitHub - it's the equivalent of giving away
-							your passwords to everyone!
-						</li>
-					</ul>
-				</section>
+        <section>
+          <h3>
+            <i class="fa fa-reply" aria-hidden="true"></i>
+            Recap: API keys
+            <i class="fa fa-key" aria-hidden="true"></i>
+          </h3>
+          <ul>
+            <li>
+              Used by most services that provide an API to identify who is accessing it.
+            </li>
+            <li>Authenticates our app and gives us permission to access the API accordingly.</li>
+            <li class="fragment highlight-red">
+              <strong>NEVER</strong> commit your keys on GitHub - it's the equivalent of giving away
+              your passwords to everyone!
+            </li>
+          </ul>
+        </section>
 
-				<section>
-					<h3>And now...</h3>
-					<p>Let's move on to the course's final major topic: <strong>deployment</strong>!</p>
-				</section>
+        <section>
+          <h3>And now...</h3>
+          <p>Let's move on to the course's final major topic: <strong>deployment</strong>!</p>
+        </section>
 
-				<section>
-					<h3>
-						<i class="fa fa-cloud-upload"></i>
-						Why should we upload (deploy) our app?
-					</h3>
-					<ul>
-						<li>
-							Up until now, we've been working on and running the website <strong>locally</strong>
-							on our laptops.
-						</li>
-						<li class="fragment">
-							This means the rest of the world won't be able to see the <strong>awesome work</strong>
-							we have done!
-						</li>
-						<li class="fragment">
-							By <strong>deploying</strong> our code to a cloud-based platform (<strong>Heroku</strong>
-							is the one we'll be using), our app will be assigned a publicly accessible URL that others
-							can visit to see it!
-						</li>
-					</ul>
-				</section>
+        <section>
+          <h3>
+            <i class="fa fa-cloud-upload"></i>
+            Why should we upload (deploy) our app?
+          </h3>
+          <ul>
+            <li>
+              Up until now, we've been working on and running the website <strong>locally</strong>
+              on our laptops.
+            </li>
+            <li class="fragment">
+              This means the rest of the world won't be able to see the <strong>awesome work</strong>
+              we have done!
+            </li>
+            <li class="fragment">
+              By <strong>deploying</strong> our code to a cloud-based platform (<strong>Heroku</strong>
+              is the one we'll be using), our app will be assigned a publicly accessible URL that others
+              can visit to see it!
+            </li>
+          </ul>
+        </section>
 
-				<section>
-					<h3>What is Heroku?</h3>
-					<ul id="heroku-list">
-						<li>
-							A <strong>cloud-based platform </strong> where we can push our code online to get our
-							flask app up and running.
-						</li>
-						<li class="fragment">
-							Since one of the main purposes of computers on a cloud-based platform is to <strong>listen
-							out to user requests</strong> at all times, it's on 24/7 unlike our laptops.
-						</li>
-						<li class="fragment">
-							Using Heroku also means that if our app becomes super popular, we can
-							easily <strong>add more computing power</strong> to the platform our app runs on without the need to
-							switch to a different one.
-						</li>
-					</ul>
-				</section>
+        <section>
+          <h3>What is Heroku?</h3>
+          <ul id="heroku-list">
+            <li>
+              A <strong>cloud-based platform </strong> where we can push our code online to get our
+              flask app up and running.
+            </li>
+            <li class="fragment">
+              Since one of the main purposes of computers on a cloud-based platform is to <strong>listen
+              out to user requests</strong> at all times, it's on 24/7 unlike our laptops.
+            </li>
+            <li class="fragment">
+              Using Heroku also means that if our app becomes super popular, we can
+              easily <strong>add more computing power</strong> to the platform our app runs on without the need to
+              switch to a different one.
+            </li>
+          </ul>
+        </section>
 
-				<section>
-					<h3>
-						<i class="fa fa-cogs" aria-hidden="true"></i>
-						Hands on: deploying our first app to Heroku
-					</h3>
-					<p class="fragment grow">
-						<a href="https://github.com/trallard/Mcr_CodeFirst_Python/blob/master/deploy-to-heroku.md" target="_blank">
-							Check out the step-by-step guide here
-						</a>
-					</p>
-				</section>
+        <section>
+          <h3>
+            <i class="fa fa-cogs" aria-hidden="true"></i>
+            Hands on: deploying our first app to Heroku
+          </h3>
+          <p class="fragment grow">
+            <a href="https://github.com/trallard/Mcr_CodeFirst_Python/blob/master/deploy-to-heroku.md" target="_blank">
+              Check out the step-by-step guide here
+            </a>
+          </p>
+        </section>
 
-				<section>
-					<h3>
-						<i class="fa fa-key" aria-hidden="true"></i>
-						More on API keys
-					</h3>
-					<p>
-						Recall from earlier (and last session) that API keys should be stored in a
-						<strong>separate config file</strong> that should never be committed to GitHub.
-					</p>
-					<p class="fragment">
-						But the only way to add
-						<strong>any files</strong> to our app on Heroku is by pushing them to GitHub...
-					</p>
-					<p class="fragment">
-						Although using a config file for API keys is normally the best practice, we'll have to forget it
-						<strong>due to the quirks</strong> of Heroku.
-					</p>
-				</section>
+        <!--
+        <section>
+          <h3>
+            <i class="fa fa-key" aria-hidden="true"></i>
+            More on API keys
+          </h3>
+          <p>
+            Recall from earlier (and last session) that API keys should be stored in a
+            <strong>separate config file</strong> that should never be committed to GitHub.
+          </p>
+          <p class="fragment">
+            But the only way to add
+            <strong>any files</strong> to our app on Heroku is by pushing them to GitHub...
+          </p>
+          <p class="fragment">
+            Although using a config file for API keys is normally the best practice, we'll have to forget it
+            <strong>due to the quirks</strong> of Heroku.
+          </p>
+        </section>
 
-				<section>
-					<p>Remember this minor modification we made earlier to our Flask code?</p>
-					<div class="full-width" data-markdown>
-						```python
-						if "PORT" in os.environ:
-							app.run(host="0.0.0.0", port=int(os.environ["PORT"]))
-						else:
-							app.run(debug=True)
-						```
-					</div>
-					<p class="fragment">
-						This gives us a hint on how we might store and access our API keys:
-						in <strong>config (environment) variables</strong>!</p>
-				</section>
+        <section>
+          <p>Remember this minor modification we made earlier to our Flask code?</p>
+          <div data-markdown>
+          ```python
+          if "PORT" in os.environ:
+            port = os.environ["PORT"]
+            app.run(host="0.0.0.0", port=port)
+          else:
+            app.run(debug=True)
+          ```
+          </div>
+          <p class="fragment">
+            This gives us a hint on how we might store and access our API keys:
+            in <strong>config (environment) variables</strong>!</p>
+        </section> -->
 
-				<section>
-					<h3>Config (environment) variables</h3>
-					<p>
-						Instead of storing our API keys in a config file, Heroku lets us store our API keys in
-						<strong>config variables instead.</strong>
-					</p>
-					<p class="fragment">
-						The values of these config variables can be set in our app on the Heroku website under
-						<strong>Settings > Config Variables</strong>, then click the <strong>Reveal Config Vars</strong> button.
-					</p>
-				</section>
+        <section>
+          <h3>Config (environment) variables</h3>
+          <p>
+            Instead of storing our API keys in a config file, Heroku lets us store our API keys in
+            <strong>config variables instead.</strong>
+          </p>
+          <p class="fragment">
+            The values of these config variables can be set in our app on the Heroku website under
+            <strong>Settings > Config Variables</strong>, then click the <strong>Reveal Config Vars</strong> button.
+          </p>
+        </section>
 
-				<section>
-					<img src="assets/heroku_settings.png" alt="Heroku settings">
-				</section>
+        <section>
+          <img src="assets/heroku_settings.png" alt="Heroku settings">
+        </section>
 
-				<section>
-					<p>And here's how we'd access the values in our Python code:</p>
-					<div class="full-width" data-markdown>
-						```python
-						import os
-						import tweepy
+        <section>
+          <p>And here's how we'd access the values in our Python code:</p>
+          <div class="full-width" data-markdown>
+            ```python
+            import os
+            import tweepy
 
-						consumer_key = os.environ["twitter_consumer_key"]
-						consumer_secret = os.environ["twitter_consumer_secret"]
-						auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-						...
-						```
-					</div>
-				</section>
-			</div>
-		</div>
+            consumer_key = os.environ["twitter_consumer_key"]
+            consumer_secret = os.environ["twitter_consumer_secret"]
+            auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+            ...
+            ```
+          </div>
+        </section>
+
+        <section>
+          <h3><i class="fa fa-bug"></i>
+            Debugging our deployed app
+          </h3>
+          <p>
+            When we develop our app locally on our laptops, we can normally <strong>trace any errors</strong>
+            our app may have by looking at the terminal where we started up our Flask app.
+          </p>
+          <p class="fragment">
+            The same set of errors may be accessed by clicking the <strong>More</strong> button at the top right
+            of your app's dashboard. Then, select <strong>View logs</strong> in the dropdown.
+          </p>
+        </section>
+
+        <section>
+          <img src="assets/error_logs_dropdown.png" alt="Error logs dropdown">
+          <small><strong>The dropdown menu to click to reach the error logs</strong></small>
+          <hr>
+          <img src="assets/error_logs.png" alt="Error logs">
+          <small><strong>What the actual error logs look like</strong></small>
+        </section>
+      </div>
+    </div>
 
 		<script src="reveal.js/lib/js/head.min.js"></script>
 		<script src="reveal.js/js/reveal.js"></script>
